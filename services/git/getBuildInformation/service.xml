@@ -1,0 +1,64 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="5be210fd-4041-487f-9a09-bbbbee04642e">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="First perform a build, this streamlines the process"
+			disabled="false"
+			id="4f08ff19-453e-4778-80cf-27fb6986b727">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="a29bc776-1658-462c-874d-d6056795f1e8"
+				serviceId="nabu.misc.git.Services.build"
+				resultName="result3c60f684affc4a98b81f311d1cd4943a"
+				temporaryMapping="true"
+				x="91"
+				y="37"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6ea4f213-cf2d-445b-9199-f688c6a78486"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="cabc1070-5623-4c48-9a5e-4427624d1932">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="2799c1ca-6219-4bbb-8c88-bd1137e34206"
+				serviceId="nabu.misc.git.Services.buildInformation"
+				resultName="result7b4f397c6ca84bc49ec24ce285f66627"
+				temporaryMapping="true"
+				x="90"
+				y="65"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3ce24f15-f1dc-4021-bc86-d578a30329ac"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/project</from>
+				<to>name</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="59442435-cd3c-452d-ad89-7c1b2eccd470"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result7b4f397c6ca84bc49ec24ce285f66627/build</from>
+			<to>output/build</to>
+		</steps>
+	</steps>
+</sequence>

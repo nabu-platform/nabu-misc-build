@@ -1,0 +1,7 @@
+[] files ?= null
+[] projects ?= null
+
+result = structure()
+
+for (project : projects)
+	file.unzip(project/zip)

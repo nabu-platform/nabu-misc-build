@@ -1,0 +1,19 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="buildInstanceId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <field name="environment" type="java.lang.String"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" maxOccurs="unbounded" minOccurs="0" name="projects"/>
+    <structure maxOccurs="unbounded" minOccurs="0" name="projectZips">
+        <field name="project" type="java.lang.String"/>
+        <field name="zip" type="[B"/>
+    </structure>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" name="buildInstance"/>
+    <structure collectionName="buildImages" definition="nabu.misc.build.crud.buildImage.types.output" name="buildImage"/>
+    <structure maxOccurs="unbounded" minOccurs="0" name="files">
+        <field comment="module, application" name="type" type="java.lang.String"/>
+        <field comment="full name (e.g. nabu.cms.core.nar)" name="name" type="java.lang.String"/>
+        <field name="uri" type="java.net.URI"/>
+    </structure>
+</structure>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <webFragments>nabu.misc.build.crud.buildImage</webFragments>
+    <webFragments>nabu.misc.build.crud.buildProject</webFragments>
+    <webFragments>nabu.misc.build.crud.buildEnvironment</webFragments>
+</webModule>

@@ -1,0 +1,1 @@
+<structure name="createInput" restrict="version, patch, profile" superType="nabu.misc.build.crud.buildInstance.types.createInput"/>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.crud.CRUDArtifactManager" created="2021-10-25T20:12:00.482+02:00" lastModified="2021-10-25T20:34:47.708+02:00" leaf="false" version="6">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.build.types.buildProject</references>
+    <references>nabu.services.crud.provider.basic.provider</references>
+</node>

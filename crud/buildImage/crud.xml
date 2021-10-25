@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<crud>
+    <allowHeaderAsQueryParameter>true</allowHeaderAsQueryParameter>
+    <coreType>nabu.misc.build.types.buildImage</coreType>
+    <createBlacklistFields>created</createBlacklistFields>
+    <createRole>$user</createRole>
+    <deleteRole>$user</deleteRole>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>name</key>
+        <operator>ilike</operator>
+        <or>false</or>
+        <input>true</input>
+    </filters>
+    <listRole>$user</listRole>
+    <provider>nabu.services.crud.provider.basic.provider</provider>
+    <updateBlacklistFields>created</updateBlacklistFields>
+    <updateRole>$user</updateRole>
+    <useExplicitLanguage>false</useExplicitLanguage>
+    <useLanguage>false</useLanguage>
+</crud>

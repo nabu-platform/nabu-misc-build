@@ -1,0 +1,3 @@
+<structure name="query">
+    <field comment="You can patch an existing instance rather than starting a new one" minOccurs="0" name="patchParentId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+</structure>

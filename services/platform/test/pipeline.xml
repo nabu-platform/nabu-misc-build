@@ -1,0 +1,13 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="cloudProfile" type="java.lang.String"/>
+        <field name="cloudApiKey" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <structure maxOccurs="unbounded" name="files">
+            <field comment="module, application" name="type" type="java.lang.String"/>
+            <field comment="full name (e.g. nabu.cms.core.nar)" name="name" type="java.lang.String"/>
+            <field name="uri" type="java.net.URI"/>
+        </structure>
+    </structure>
+</structure>

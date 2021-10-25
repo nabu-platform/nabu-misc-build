@@ -1,0 +1,12 @@
+<structure interface="nabu.misc.build.manage.rest.instance.create:api" name="pipeline">
+    <structure name="input" validate="true"/>
+    <structure name="output"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.createInput" name="fullInput" restrict="id"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" name="last"/>
+    <structure collectionName="buildImages" definition="nabu.misc.build.crud.buildImage.types.output" name="image"/>
+    <structure collectionName="buildProjects" definition="nabu.misc.build.crud.buildProject.types.output" maxOccurs="unbounded" minOccurs="0" name="projects"/>
+    <structure definition="be.nabu.eai.module.git.GitInformation" maxOccurs="unbounded" minOccurs="0" name="builds"/>
+    <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.types.buildInstanceProject" maxOccurs="unbounded" name="projectInstances"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.createOutput" name="buildInstance" restrict="created"/>
+    <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" maxOccurs="unbounded" minOccurs="0" name="existingProjectInstances"/>
+</structure>

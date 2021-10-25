@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T20:41:19.572+02:00" lastModified="2021-10-25T22:47:31.036+02:00" leaf="true" version="18">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.utils.String.join</references>
+    <references>nabu.protocols.http.client.Services.execute</references>
+    <references>nabu.utils.Resource.write</references>
+    <references>nabu.utils.Resource.properties</references>
+    <references>nabu.misc.build.services.platform.profile</references>
+    <references>nabu.data.mime.Services.getContent</references>
+    <references>nabu.utils.Object.last</references>
+    <references>nabu.utils.Server.property</references>
+    <references>java.lang.String</references>
+    <references>java.net.URI</references>
+    <references>be.nabu.libs.resources.api.ResourceProperties</references>
+</node>

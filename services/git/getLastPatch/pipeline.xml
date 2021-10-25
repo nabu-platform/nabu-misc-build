@@ -1,0 +1,12 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="project" type="java.lang.String"/>
+        <field minOccurs="0" name="release" type="java.lang.Long"/>
+    </structure>
+    <structure name="output">
+        <structure definition="be.nabu.eai.module.git.GitRelease" minOccurs="0" name="release"/>
+        <structure definition="be.nabu.eai.module.git.GitPatch" minOccurs="0" name="patchVersion"/>
+    </structure>
+    <structure definition="nabu.misc.git.types.GitBuild" minOccurs="0" name="build"/>
+    <structure definition="be.nabu.eai.module.git.GitRelease" minOccurs="0" name="release"/>
+</structure>

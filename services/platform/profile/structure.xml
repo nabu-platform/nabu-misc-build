@@ -1,0 +1,18 @@
+<structure name="anonymous">
+    <structure maxOccurs="unbounded" name="modules">
+        <field name="name" type="java.lang.String"/>
+        <structure maxOccurs="unbounded" name="versions">
+            <field name="version" type="java.lang.String"/>
+            <field name="md5" type="java.lang.String"/>
+            <field name="released" type="java.util.Date"/>
+        </structure>
+    </structure>
+    <structure maxOccurs="unbounded" name="applications">
+        <field name="name" type="java.lang.String"/>
+        <structure maxOccurs="unbounded" name="versions">
+            <field name="version" type="java.lang.String"/>
+            <field name="md5" type="java.lang.String"/>
+            <field name="released" type="java.util.Date"/>
+        </structure>
+    </structure>
+</structure>

@@ -1,0 +1,86 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="eb42b101-7460-447c-a4ee-22d59e9d92ed">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="a400c164-15bc-4d28-bf3f-aec4513edb09">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="afec8c02-cf68-48ac-94b6-e43ba9c87cb4"
+				serviceId="nabu.misc.build.services.platform.downloadJson"
+				resultName="resultf2cd333986ac4f3abc1a056e02a86465"
+				temporaryMapping="true"
+				x="30"
+				y="30"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="96a02f55-038f-4b03-b9b4-46502b185196"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/cloudProfile</from>
+				<to>cloudProfile</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="714d57c8-f814-4a5f-b905-d65ece07febe"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/cloudApiKey</from>
+				<to>cloudApiKey</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e650bcb9-c277-45f4-9444-607896542689"
+				serviceId="nabu.misc.build.services.platform.downloadPackages"
+				resultName="result897d66a0c0f54d87b6764250df4fd164"
+				temporaryMapping="true"
+				x="293"
+				y="144"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c5210996-f38a-40ee-88dd-9e00255a0449"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultf2cd333986ac4f3abc1a056e02a86465/profile</from>
+				<to>profile</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1571bdec-75dc-422b-ae3e-708a1b3cfcbd"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/cloudProfile</from>
+				<to>cloudProfile</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5cdd4421-84b6-482c-98c3-4254e370d50d"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/cloudApiKey</from>
+				<to>cloudApiKey</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="550b53b2-3ca2-4813-ad41-980248d00596"
+				mask="true"
+				optional="false"
+				fixedValue="false">
+			<from>result897d66a0c0f54d87b6764250df4fd164/files</from>
+			<to>output/files</to>
+		</steps>
+	</steps>
+</sequence>

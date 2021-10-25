@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.data.model.DataModelManager" created="2021-10-25T17:03:18.608+02:00" lastModified="2021-10-25T17:29:24.968+02:00" leaf="true" version="41">
+    <description>The build environment is "leading", if you add the environment here and the project, a branch with that name will be created in the project if it does not yet exist?
+Or at least it is expected.
+
+So having a "dev" environment but base it on the branch "development" in the project won't work, we would need an additional table to manage that...</description>
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+</node>
