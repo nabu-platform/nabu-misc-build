@@ -806,15 +806,6 @@
 						<from>=changed || existingProjectInstance/release != projectInstances[0]/release || existingProjectInstance/patch != projectInstances[0]/patch</from>
 						<to>changed</to>
 					</steps>
-					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-							disabled="false"
-							id="78f33ef4-26f3-447a-b3f5-87392e33bb31"
-							mask="false"
-							optional="false"
-							fixedValue="true">
-						<from>=changed || buildInstance/version != projectInstances[0]/release || buildInstance/patch != projectInstances[0]/patch</from>
-						<to>projectInstances[0]/release</to>
-					</steps>
 				</steps>
 				<query>existingProjectInstances</query>
 			</steps>
