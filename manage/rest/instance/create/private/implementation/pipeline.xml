@@ -9,4 +9,5 @@
     <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.types.buildInstanceProject" maxOccurs="unbounded" name="projectInstances"/>
     <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.createOutput" name="buildInstance" restrict="created"/>
     <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" maxOccurs="unbounded" minOccurs="0" name="existingProjectInstances"/>
+    <field name="changed" type="java.lang.Boolean"/>
 </structure>

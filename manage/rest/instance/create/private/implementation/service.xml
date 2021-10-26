@@ -297,77 +297,189 @@
 			</steps>
 		</steps>
 	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
-			id="5f0724bd-7b02-478b-840c-5351dd9474d7">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+			id="f0e54cf2-e833-400e-a013-b63162148fa7">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="If we have a patch parent, use the nabu version from that"
 				disabled="false"
-				id="a1dec6f9-3671-45c1-9ef6-b2f0691d39a7"
-				serviceId="nabu.misc.build.services.platform.downloadJson"
-				resultName="resultdfe23d03eba046f881383a4e635209b6"
-				temporaryMapping="true"
-				x="124"
-				y="37"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
+				id="12546e36-b82d-467d-9250-2af6394f7cc0"
+				label="input/query/patchParentId != null &amp;&amp; input/query/updateProfile != true">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="9f7792ef-229d-48ac-9b45-bae1969ced73"
+					id="49e0404f-cd8e-4ef9-9975-56037bbf4527"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>image/cloudProfile</from>
-				<to>cloudProfile</to>
+				<from>last/profile</from>
+				<to>fullInput/profile</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="b14e3e89-39f3-4af3-8639-a758b7afbad0"
+					id="c040e200-4d17-4b0b-bee5-8f537b97ecdb"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>image/cloudApiKey</from>
-				<to>cloudApiKey</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="dcae581c-09e1-4611-a0ef-e91838e44af7"
-				serviceId="nabu.data.json.Services.marshal"
-				resultName="result4c13406dd054485b81346c8b9a05b809"
-				temporaryMapping="true"
-				x="420"
-				y="198"
-				invocationOrder="1"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="af3b4425-3d31-45da-8263-c2e2caa4d5b2"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>resultdfe23d03eba046f881383a4e635209b6/profile</from>
-				<to>data</to>
+				<from>last/profileVersion</from>
+				<to>fullInput/profileVersion</to>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="156019e3-d551-4c2f-9326-089b408d33e1"
+					id="ae15b0a9-147b-400c-b8d8-94454f5d67aa"
 					mask="false"
 					optional="false"
 					fixedValue="true">
-				<from>true</from>
-				<to>prettyPrint</to>
+				<from>false</from>
+				<to>changed</to>
 			</steps>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				disabled="false"
-				id="a3e1ba41-2eec-4457-abc5-778b6506a976"
-				mask="false"
-				optional="false"
-				fixedValue="false">
-			<from>result4c13406dd054485b81346c8b9a05b809/marshalled</from>
-			<to>fullInput/profile</to>
+				id="5e1d29df-2008-4aeb-9378-e8123670a2d3">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="5f0724bd-7b02-478b-840c-5351dd9474d7">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="a1dec6f9-3671-45c1-9ef6-b2f0691d39a7"
+						serviceId="nabu.misc.build.services.platform.downloadJson"
+						resultName="resultdfe23d03eba046f881383a4e635209b6"
+						temporaryMapping="true"
+						x="124"
+						y="37"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="9f7792ef-229d-48ac-9b45-bae1969ced73"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>image/cloudProfile</from>
+						<to>cloudProfile</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="b14e3e89-39f3-4af3-8639-a758b7afbad0"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>image/cloudApiKey</from>
+						<to>cloudApiKey</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="dcae581c-09e1-4611-a0ef-e91838e44af7"
+						serviceId="nabu.data.json.Services.marshal"
+						resultName="result4c13406dd054485b81346c8b9a05b809"
+						temporaryMapping="true"
+						x="420"
+						y="198"
+						invocationOrder="1"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="af3b4425-3d31-45da-8263-c2e2caa4d5b2"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>resultdfe23d03eba046f881383a4e635209b6/profile</from>
+						<to>data</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="156019e3-d551-4c2f-9326-089b408d33e1"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>true</from>
+						<to>prettyPrint</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="a3e1ba41-2eec-4457-abc5-778b6506a976"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result4c13406dd054485b81346c8b9a05b809/marshalled</from>
+					<to>fullInput/profile</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="29141045-da0b-4dc7-9d7a-84e215a1a3dd"
+						serviceId="nabu.misc.build.services.platform.calculateProfileHash"
+						resultName="result5af7eef351cf4cceae961aec6ee28aac"
+						temporaryMapping="true"
+						x="416"
+						y="296"
+						invocationOrder="1"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="edf10090-3b43-4683-b54b-844ec3acfdf2"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>resultdfe23d03eba046f881383a4e635209b6/profile</from>
+						<to>profile</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="4dc146bd-c2a5-4931-81d7-6ef08a037838"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result5af7eef351cf4cceae961aec6ee28aac/hash</from>
+					<to>fullInput/profileVersion</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7cf8c81c-cce8-495f-a4b0-12d29cbf0865"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>true</from>
+					<to>changed</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+					disabled="false"
+					id="479e495f-c484-47f2-98b0-9c1a3b0db96f">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="If we updated from patch but have the same nabu version in the end, its not an update"
+						disabled="false"
+						id="f59a6e1e-2730-4a82-8a95-9c0e773c7ad6"
+						label="input/query/patchParentId != null &amp;&amp; last/profileVersion = fullInput/profileVersion">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="d51672f3-3160-4d91-bb8d-23ef001a7c32"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>false</from>
+						<to>changed</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						disabled="false"
+						id="5a8fd984-5ef1-4e10-81ba-ad0a32fbed87">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="8d0189ce-8e61-4f2b-b898-813887f3df91"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>true</from>
+						<to>changed</to>
+					</steps>
+				</steps>
+			</steps>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
@@ -506,6 +618,15 @@
 							invocationOrder="0"
 							asynchronous="false"
 							recache="false">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="195a5735-26b7-40b4-a373-ada3f971a10d"
+								mask="false"
+								optional="false"
+								fixedValue="false">
+							<from>project/name</from>
+							<to>project</to>
+						</steps>
 					</steps>
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
@@ -672,8 +793,37 @@
 						<to>projectInstances[0]/buildProjectId</to>
 					</steps>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="Update changed"
+						disabled="false"
+						id="f29f1c99-0638-4d54-8587-be82d25e959b">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="b5b7b3a7-d6d9-441c-9b29-9cc345bf4dac"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>=changed || existingProjectInstance/release != projectInstances[0]/release || existingProjectInstance/patch != projectInstances[0]/patch</from>
+						<to>changed</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="78f33ef4-26f3-447a-b3f5-87392e33bb31"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>=changed || buildInstance/version != projectInstances[0]/release || buildInstance/patch != projectInstances[0]/patch</from>
+						<to>projectInstances[0]/release</to>
+					</steps>
+				</steps>
 				<query>existingProjectInstances</query>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+					disabled="false"
+					id="fbc40dfd-dae7-482c-b67e-1c415bd067aa"
+					label="!changed"
+					code="NO-CHANGE"
+					message="No change detected in the projects" xsi:nil="true"/>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"

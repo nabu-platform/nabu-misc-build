@@ -1,0 +1,9 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure definition="nabu.misc.build.services.platform.profile" name="profile"/>
+    </structure>
+    <structure name="output">
+        <field name="hash" type="java.lang.String"/>
+    </structure>
+    <field maxOccurs="unbounded" minOccurs="0" name="parts" type="java.lang.String"/>
+</structure>

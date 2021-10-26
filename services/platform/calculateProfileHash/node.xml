@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-26T15:25:34.637+02:00" lastModified="2021-10-26T15:28:04.206+02:00" leaf="true" version="8">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.utils.List.sort</references>
+    <references>nabu.utils.String.join</references>
+    <references>nabu.misc.build.services.platform.profile</references>
+    <references>nabu.utils.Object.last</references>
+    <references>java.lang.String</references>
+    <references>nabu.utils.Security.hash</references>
+</node>

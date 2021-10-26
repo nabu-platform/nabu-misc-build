@@ -2,7 +2,7 @@
 <restInterface>
     <method>POST</method>
     <path>/instance</path>
-    <queryParameters>patchParentId</queryParameters>
+    <queryParameters>patchParentId, updateProfile</queryParameters>
     <role>$user</role>
     <input>nabu.misc.build.manage.rest.instance.createInput</input>
     <lenient>true</lenient>

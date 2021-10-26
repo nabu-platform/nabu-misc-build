@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <webModule>
+    <path>/build</path>
     <webFragments>nabu.misc.build.crud.buildImage</webFragments>
     <webFragments>nabu.misc.build.crud.buildProject</webFragments>
     <webFragments>nabu.misc.build.crud.buildEnvironment</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.build.listAvailable</webFragments>
+    <webFragments>nabu.misc.build.crud.buildInstance.services.list</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.instance.create</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.instance.download</webFragments>
+    <webFragments>nabu.misc.build.crud.buildInstanceProject.services.list</webFragments>
 </webModule>

@@ -3,5 +3,16 @@
 
 result = structure()
 
+# add the projects unzipped (allows for hotfixes in prd)
 for (project : projects)
-	file.unzip(project/zip)
+	result = structure(result, lambda("repository/" + project/project): file.unzip(project/zip))
+	
+for (file : files)
+	if (file/type == "module")
+		result = structure(result, lambda("repository/" + replace("\.", "/", file/name) + ".nar"): file.read(file/uri))
+	# currently we only install integrator
+	else if (file/type == "application" && file/name ~ ".*integrator.*")
+		result = structure(result, lambda("software/integrator"): file.unzip(file.read(file/uri)))
+		
+@return
+bytes zip = file.zip(result)

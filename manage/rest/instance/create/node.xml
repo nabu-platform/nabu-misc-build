@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2021-10-25T20:34:10.250+02:00" leaf="true" version="35">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2021-10-26T16:05:08.929+02:00" leaf="true" version="55">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
@@ -17,8 +17,10 @@
     <references>nabu.misc.build.crud.buildInstance.types.output</references>
     <references>nabu.misc.build.crud.buildInstanceProject.types.output</references>
     <references>nabu.misc.build.crud.buildImage.services.get</references>
+    <references>nabu.misc.build.services.platform.calculateProfileHash</references>
     <references>nabu.services.jdbc.Services.insert</references>
     <references>be.nabu.eai.module.git.GitInformation</references>
+    <references>java.lang.Boolean</references>
     <references>nabu.misc.build.crud.buildProject.types.output</references>
     <references>nabu.misc.build.crud.buildInstance.services.get</references>
     <references>nabu.data.json.Services.marshal</references>

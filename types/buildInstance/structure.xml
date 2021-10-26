@@ -5,4 +5,5 @@
     <field name="patch" type="java.lang.Long"/>
     <field name="created" timezone="UTC" type="java.util.Date"/>
     <field comment="The json description of the profile at this time. This will contain the exact versions of all the modules." name="profile" type="java.lang.String"/>
+    <field comment="A hash of the current profile, this allows you to (more or less) compare them?" name="profileVersion" type="java.lang.String"/>
 </structure>

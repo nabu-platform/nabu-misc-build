@@ -155,6 +155,15 @@
 					<from>="r" + project/release + "." + project/patch + "-" + input/environment</from>
 					<to>branch</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="f0165d3c-c27b-41fb-b5bd-7704cf204446"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>false</from>
+					<to>includeRoot</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
@@ -291,6 +300,15 @@
 				<from>projectZips</from>
 				<to>projects</to>
 			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c5b8156d-7a2b-467b-8fcf-a05959f6f9f3"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultba9508df1df643a1a17b766dcb343e5f/zip</from>
+			<to>output/zip</to>
 		</steps>
 	</steps>
 </sequence>

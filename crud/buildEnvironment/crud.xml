@@ -2,10 +2,37 @@
 <crud>
     <allowHeaderAsQueryParameter>true</allowHeaderAsQueryParameter>
     <coreType>nabu.misc.build.types.buildEnvironment</coreType>
+    <createBlacklistFields>started</createBlacklistFields>
+    <createBlacklistFields>stopped</createBlacklistFields>
     <createRole>$user</createRole>
     <deleteRole>$user</deleteRole>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>started</key>
+        <operator>&lt;=</operator>
+        <or>false</or>
+        <alias>availableAt</alias>
+        <input>true</input>
+    </filters>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>stopped</key>
+        <operator>is null</operator>
+        <or>false</or>
+        <alias>availableAt</alias>
+        <input>false</input>
+    </filters>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>stopped</key>
+        <operator>&gt;</operator>
+        <or>true</or>
+        <alias>availableAt</alias>
+        <input>true</input>
+    </filters>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
+    <updateBlacklistFields>started</updateBlacklistFields>
     <updateRole>$user</updateRole>
     <useExplicitLanguage>false</useExplicitLanguage>
     <useLanguage>false</useLanguage>

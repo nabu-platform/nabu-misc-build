@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <restInterface>
     <method>GET</method>
-    <path>/instance/{instanceId}/zip/{environment}</path>
+    <path>/available</path>
     <role>$user</role>
-    <outputAsStream>true</outputAsStream>
+    <output>nabu.misc.build.manage.rest.build.listOutput</output>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>
     <geoPosition>false</geoPosition>
