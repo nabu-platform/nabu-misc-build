@@ -18,4 +18,6 @@
         <field comment="full name (e.g. nabu.cms.core.nar)" name="name" type="java.lang.String"/>
         <field name="uri" type="java.net.URI"/>
     </structure>
+    <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" minOccurs="0" name="buildEnvironment"/>
+    <structure definition="nabu.misc.build.services.server.configuration" name="configuration"/>
 </structure>

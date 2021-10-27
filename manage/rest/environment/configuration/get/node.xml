@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-27T10:05:05.648+02:00" lastModified="2021-10-27T10:17:31.587+02:00" leaf="true" version="7">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.utils.reflection.Type.newInstance</references>
+    <references>nabu.misc.build.services.server.configuration</references>
+    <references>nabu.misc.build.crud.buildEnvironment.types.output</references>
+    <references>nabu.data.json.Services.unmarshal</references>
+    <references>nabu.misc.build.crud.buildEnvironment.services.get</references>
+</node>

@@ -1,6 +1,13 @@
 [] files ?= null
 [] projects ?= null
 
+nabu.misc.build.services.server.configuration configuration ?= null
+
+string cloudProfile ?= null
+string cloudApiKey ?= null
+string projectName ?= null
+string environment ?= null
+
 result = structure()
 
 # add the projects unzipped (allows for hotfixes in prd)
@@ -13,6 +20,40 @@ for (file : files)
 	# currently we only install integrator
 	else if (file/type == "application" && file/name ~ ".*integrator.*")
 		result = structure(result, lambda("software/integrator"): file.unzip(file.read(file/uri)))
-		
+
+# tweak the server settings
+
+# check if we have the cloud
+hasCloud = size(files[type == "module" && name == "nabu.cloud"]) > 0
+
+port = when(configuration/port != null, configuration/port, 5555)
+serverGroup = when(configuration/serverGroup != null, configuration/serverGroup, projectName + "-" + environment)
+
+serverProperties = template("
+	port=${port}
+	relativeRepository=../../repository
+	listenerPoolSize=20
+	enableREST=true
+	enableMaven=true
+	localMavenServer=http://localhost:8080/
+	group=${serverGroup}
+	")
+# inject cloud specific parameters
+if (hasCloud)
+	# with a tiny refactor of the cloud client, this is no longer necessary so we don't include it
+	#		cepService=nabu.cloud.providers.eventHandler
+	serverProperties = serverProperties + template("
+		nabu.cloud.apiKey=${cloudApiKey}
+		nabu.cloud.profile=${cloudProfile}
+		")
+
+if (configuration/dataPath != null)
+	serverProperties = serverProperties + template("
+		resources.alias.data=${configuration/dataPath}
+		")
+
+integratorEntry = result["software/integrator"]
+integratorEntry["server.properties"] = serverProperties
+
 @return
 bytes zip = file.zip(result)

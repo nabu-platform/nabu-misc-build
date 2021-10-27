@@ -1,0 +1,21 @@
+<structure name="configuration">
+    <field comment="5555" minOccurs="0" name="port" type="java.lang.Long"/>
+    <field comment="The name of the group. This defaults to &quot;&lt;project&gt;-&lt;environment&gt;&quot;" minOccurs="0" name="serverGroup" type="java.lang.String"/>
+    <field comment="Whether or not to cluster, by default it is not a cluster" name="cluster" type="java.lang.Boolean"/>
+    <structure minOccurs="0" name="amazonCluster">
+        <field name="region" type="java.lang.String"/>
+        <field comment="The tag key to use to find instances" name="tagKey" type="java.lang.String"/>
+        <field comment="The value of said key for the members of this group" name="tagValue" type="java.lang.String"/>
+    </structure>
+    <structure minOccurs="0" name="fixedCluster">
+        <field maxOccurs="unbounded" minOccurs="0" name="ips" type="java.lang.String"/>
+    </structure>
+    <structure minOccurs="0" name="multicastCluster">
+        <field comment="The multicast group (an ip), e.g. 224.2.2.3" name="group" type="java.lang.String"/>
+        <field comment="The multicast port, e.g. 54327" name="port" type="java.lang.Long"/>
+        <field comment="The time to live (e.g. 32)" minOccurs="0" name="timeToLive" type="java.lang.Long"/>
+        <field comment="The timeout seconds (e.g. 2). Specifies the time in seconds that a member should wait for a valid multicast response from another member running in the network before declaring itself the leader member (the first member joined to the cluster) and creating its own cluster. Too high makes the servers wait, too short makes them decide too early that they should strike out on their own." minOccurs="0" name="timeoutSeconds" type="java.lang.Long"/>
+        <field maxOccurs="unbounded" minOccurs="0" name="trustedIps" type="java.lang.String"/>
+    </structure>
+    <field comment="Where the data: alias should point. It's a default for data storage." minOccurs="0" name="dataPath" type="java.lang.String"/>
+</structure>

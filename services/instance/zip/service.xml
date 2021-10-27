@@ -118,6 +118,54 @@
 			id="79bf6765-3bd9-414e-b080-96fbf598a0c1"
 			label="!buildImage"
 			message="Could not find build image" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="de0f09bc-54e0-4206-92d6-c7b126bf181c">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="05181078-44e9-4e81-8399-9ee1a8816a5c"
+				serviceId="nabu.misc.build.crud.buildEnvironment.services.list"
+				resultName="resultd6d18e692de14f3fa485df153dc20d24"
+				temporaryMapping="true"
+				x="145"
+				y="61"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5a3d7a6e-bf4a-4c8d-b1db-f6a962849ad8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>buildImage/id</from>
+				<to>filter/buildImageId[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ed5adc3e-260e-4e0a-be0f-51d0f1235be6"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/environment</from>
+				<to>filter/name[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="8a207f64-f935-4e79-bad8-23bfbdd0eaf7"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultd6d18e692de14f3fa485df153dc20d24/results[0]</from>
+			<to>buildEnvironment</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="c41d0888-ac38-44cf-85bb-51ca8bfe455e"
+			label="!buildEnvironment"
+			message="Could not find environment" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.For"
 			disabled="false"
 			id="de87029f-e5cf-4ac5-aaa9-3b17c776a101"
@@ -270,6 +318,59 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
+			id="66db2424-dcc8-44a9-88b8-cabf6ef1923e"
+			label="buildEnvironment/configuration != null">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="f38e655f-0c5a-484b-99fc-dbde53bb6112"
+				serviceId="nabu.data.json.Services.unmarshal"
+				resultName="resulte3ae3881ab5c40e5951230e5872c0ab5"
+				temporaryMapping="true"
+				x="51"
+				y="42"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="81cd9a81-5062-41a5-bc24-0a7eaf9f5695"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>buildEnvironment/configuration</from>
+				<to>input</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2d941dcd-829c-4c79-81f1-b9f9cc3d2ab1"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>nabu.misc.build.services.server.configuration</from>
+				<to>type</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f23c3da7-e2d8-4a0e-abcc-2c7489c494d0"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>true</from>
+				<to>ignoreUndefinedFields</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="9e0cd424-e74f-4b27-b38e-a114ad20f729"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resulte3ae3881ab5c40e5951230e5872c0ab5/unmarshalled</from>
+			<to>configuration</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
 			id="36ea3cae-818b-4aca-a37b-705d478c3b11">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
@@ -299,6 +400,51 @@
 					fixedValue="false">
 				<from>projectZips</from>
 				<to>projects</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cdf416d7-aaeb-4dd0-a0d6-ad44d6229c10"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>buildImage/cloudProfile</from>
+				<to>cloudProfile</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e8364bbd-9142-49aa-b6e2-185f81f31d27"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>buildImage/cloudApiKey</from>
+				<to>cloudApiKey</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e8f692bd-368f-4b75-abff-b199433f7de8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/environment</from>
+				<to>environment</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cff14376-d876-4c79-957f-79c8d051b61e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>buildImage/name</from>
+				<to>projectName</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="220ccd92-7bad-45f8-8b96-5a2da28fb51e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>configuration</from>
+				<to>configuration</to>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"

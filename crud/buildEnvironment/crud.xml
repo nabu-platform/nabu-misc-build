@@ -30,6 +30,20 @@
         <alias>availableAt</alias>
         <input>true</input>
     </filters>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>buildImageId</key>
+        <operator>=</operator>
+        <or>false</or>
+        <input>true</input>
+    </filters>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>name</key>
+        <operator>=</operator>
+        <or>false</or>
+        <input>true</input>
+    </filters>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
     <updateBlacklistFields>started</updateBlacklistFields>

@@ -9,4 +9,8 @@
     <webFragments>nabu.misc.build.manage.rest.instance.create</webFragments>
     <webFragments>nabu.misc.build.manage.rest.instance.download</webFragments>
     <webFragments>nabu.misc.build.crud.buildInstanceProject.services.list</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.instance.downloadProject</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.environment.configuration.get</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.environment.configuration.set</webFragments>
+    <audience>MANAGER</audience>
 </webModule>

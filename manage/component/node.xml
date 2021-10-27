@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2021-10-25T19:48:00.192+02:00" lastModified="2021-10-26T15:23:51.576+02:00" leaf="true" version="15">
+<node artifactManager="be.nabu.eai.module.web.component.WebComponentManager" created="2021-10-25T19:48:00.192+02:00" lastModified="2021-10-27T10:15:51.966+02:00" leaf="true" version="18">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
@@ -11,4 +11,7 @@
     <references>nabu.misc.build.manage.rest.instance.create</references>
     <references>nabu.misc.build.manage.rest.instance.download</references>
     <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
+    <references>nabu.misc.build.manage.rest.instance.downloadProject</references>
+    <references>nabu.misc.build.manage.rest.environment.configuration.get</references>
+    <references>nabu.misc.build.manage.rest.environment.configuration.set</references>
 </node>

@@ -1,0 +1,162 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="20ab70ac-3226-4f46-8a33-0afb55173b6b">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="53afeca9-9a6b-4ff0-ae3c-bbbaa7886558">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ab38133d-b643-4707-a7b5-a44bc7b24c75"
+				serviceId="nabu.misc.build.crud.buildInstance.services.get"
+				resultName="result6a214c3ccae3468bac3df5fdf3903911"
+				temporaryMapping="true"
+				x="131"
+				y="36"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="600227e2-1258-4963-a72e-dc6259a2fe30"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/instanceId</from>
+				<to>id</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b2a07446-4b3b-4ba2-a0cc-476f36f9649e"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result6a214c3ccae3468bac3df5fdf3903911/result</from>
+			<to>buildInstance</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="9741b953-59a5-499e-b032-c33951549314"
+			label="!buildInstance"
+			code="404"
+			message="Could not find build image" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="e1174429-3063-4dde-9134-620ea86c373d">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="473668e3-621f-497a-80ea-08994579a335"
+				serviceId="nabu.misc.build.crud.buildInstanceProject.services.list"
+				resultName="result7388ad7f35274426acc925d5216c6a5f"
+				temporaryMapping="true"
+				x="83"
+				y="36"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e18ebac9-cf69-47b8-9b7c-c00a2fed972e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>filter/name[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="26deca2f-cc14-4219-a200-44c22e24803d"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/instanceId</from>
+				<to>filter/buildInstanceId[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b2507e12-1cde-4953-b565-f0f743dab7ea"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result7388ad7f35274426acc925d5216c6a5f/results[0]</from>
+			<to>project</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="fa55294a-623b-4950-b3cc-e14b7cbd5cb4"
+			label="!project"
+			message="Project not related to build" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="212e5bb2-3f7e-41b0-9fcc-b347c555fac6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="1f2681ce-752c-452a-a948-e9e1c78e9ab0"
+				serviceId="nabu.misc.git.Services.zip"
+				resultName="result20d981874137447cb98638d30340a6c7"
+				temporaryMapping="true"
+				x="297"
+				y="146"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0d72acdc-18d6-420c-b434-ea9dda819ec4"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/project</from>
+				<to>name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6951ac68-a4f9-4ed6-be7c-aeadd43a01d7"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>="r" + project/release + "." + project/patch + "-" + input/path/environment</from>
+				<to>branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="43a515ff-59bb-404a-acbd-38430d029761"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>true</from>
+				<to>includeRoot</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b074e9c9-fe7b-4377-866a-f93c63d178c4"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result20d981874137447cb98638d30340a6c7/zip</from>
+			<to>output/content</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="597031e3-a0b5-46e0-9e5f-32d49c478439"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>application/zip</from>
+			<to>output/meta/contentType</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="595110cb-310b-4b26-a1be-bda6495b94d5"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>=input/path/project + "-" + "r" + project/release + "." + project/patch + "-" + input/path/environment + ".zip"</from>
+			<to>output/meta/fileName</to>
+		</steps>
+	</steps>
+</sequence>

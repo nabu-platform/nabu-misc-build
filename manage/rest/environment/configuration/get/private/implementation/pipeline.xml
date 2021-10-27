@@ -1,0 +1,5 @@
+<structure interface="nabu.misc.build.manage.rest.environment.configuration.get:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" name="environment"/>
+</structure>

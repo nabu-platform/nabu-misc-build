@@ -1,0 +1,5 @@
+<structure name="path">
+    <field name="instanceId" type="java.lang.String"/>
+    <field name="environment" type="java.lang.String"/>
+    <field name="project" type="java.lang.String"/>
+</structure>

@@ -1,0 +1,6 @@
+<structure interface="$self:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" name="buildInstance"/>
+    <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" minOccurs="0" name="project"/>
+</structure>

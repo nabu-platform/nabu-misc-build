@@ -11,6 +11,13 @@
         <or>false</or>
         <input>true</input>
     </filters>
+    <filters>
+        <caseInsensitive>false</caseInsensitive>
+        <key>name</key>
+        <operator>=</operator>
+        <or>false</or>
+        <input>true</input>
+    </filters>
     <foreignFields>
         <foreignName>buildProjectId:name</foreignName>
         <localName>name</localName>

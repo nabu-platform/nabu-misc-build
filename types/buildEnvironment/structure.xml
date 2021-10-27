@@ -5,4 +5,5 @@
     <field minOccurs="0" name="stopped" timezone="UTC" type="java.util.Date"/>
     <field name="name" type="java.lang.String"/>
     <field comment="Default is also &quot;runtime&quot;, can set to &quot;test&quot;. Test environments can be used to perform automated testing." minOccurs="0" name="scope" type="java.lang.String"/>
+    <field comment="The configuration for this environment" minOccurs="0" name="configuration" type="java.lang.String"/>
 </structure>

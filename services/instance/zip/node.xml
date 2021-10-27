@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T22:56:29.320+02:00" lastModified="2021-10-26T15:44:48.820+02:00" leaf="true" version="16">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T22:56:29.320+02:00" lastModified="2021-10-27T10:14:03.293+02:00" leaf="true" version="22">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
     <references>nabu.misc.build.crud.buildImage.types.output</references>
     <references>[B</references>
+    <references>nabu.misc.build.crud.buildEnvironment.services.list</references>
     <references>java.util.UUID</references>
     <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
     <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>nabu.misc.build.crud.buildEnvironment.types.output</references>
     <references>nabu.misc.git.Services.zip</references>
     <references>nabu.misc.build.crud.buildInstanceProject.types.output</references>
     <references>nabu.misc.build.crud.buildImage.services.get</references>
     <references>nabu.misc.build.services.platform.downloadPackages</references>
+    <references>nabu.misc.build.services.server.configuration</references>
     <references>java.lang.String</references>
     <references>java.net.URI</references>
     <references>nabu.misc.build.crud.buildInstance.services.get</references>
