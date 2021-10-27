@@ -8,6 +8,8 @@ string cloudApiKey ?= null
 string projectName ?= null
 string environment ?= null
 
+string imageVersion ?= null
+
 result = structure()
 
 # add the projects unzipped (allows for hotfixes in prd)
@@ -63,8 +65,8 @@ if (configuration/cluster != null)
 		cluster=hazelcast.xml"
 
 if (configuration/cluster == "amazon")
-	integratorEntry["hazelcast.xml"] = template('
-		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+	integratorEntry["hazelcast.xml"] = template(
+		'<hazelcast xmlns="http://www.hazelcast.com/schema/config">
 			<network>
 				<join>
 					<multicast enabled="false"></multicast>
@@ -79,8 +81,8 @@ if (configuration/cluster == "amazon")
 		</hazelcast>')
 		
 else if (configuration/cluster == "fixed")
-	integratorEntry["hazelcast.xml"] = template('
-		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+	integratorEntry["hazelcast.xml"] = template(
+		'<hazelcast xmlns="http://www.hazelcast.com/schema/config">
 			<network>
 				<join>
 					<multicast enabled="false" />
@@ -95,8 +97,8 @@ else if (configuration/cluster == "fixed")
 		</hazelcast>')
 
 else if (configuration/cluster == "multicast")
-	integratorEntry["hazelcast.xml"] = template('
-		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+	integratorEntry["hazelcast.xml"] = template(
+		'<hazelcast xmlns="http://www.hazelcast.com/schema/config">
 			<network>
 				<join>
 					<multicast enabled="true">
@@ -119,6 +121,14 @@ else if (configuration/cluster == "multicast")
 
 
 integratorEntry["server.properties"] = serverProperties
+
+result = structure(result, lambda("release.xml"): template(
+	"<release>
+		<image>${projectName}</image>
+		<version>${imageVersion}</version>
+		<created>${date()}</created>
+	</release>
+	"))
 
 @return
 bytes zip = file.zip(result)

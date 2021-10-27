@@ -446,6 +446,15 @@
 				<from>configuration</from>
 				<to>configuration</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4f270bf1-c5b5-4cfc-9912-cea9d9438b15"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>="v" + buildInstance/version + "." + buildInstance/patch</from>
+				<to>imageVersion</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
