@@ -29,9 +29,11 @@ hasCloud = size(files[type == "module" && name == "nabu.cloud"]) > 0
 port = when(configuration/port != null, configuration/port, 5555)
 serverGroup = when(configuration/serverGroup != null, configuration/serverGroup, projectName + "-" + environment)
 
+integratorEntry = result["software/integrator"]
+
 serverProperties = template("
 	port=${port}
-	relativeRepository=../../repository
+	repository=../../repository
 	listenerPoolSize=20
 	enableREST=true
 	enableMaven=true
@@ -52,7 +54,70 @@ if (configuration/dataPath != null)
 		resources.alias.data=${configuration/dataPath}
 		")
 
-integratorEntry = result["software/integrator"]
+integratorEntry["hazelcast-amazon.xml"] = null
+integratorEntry["hazelcast-fixed.xml"] = null
+integratorEntry["hazelcast-multicast.xml"] = null
+
+if (configuration/cluster != null)
+	serverProperties = serverProperties + "
+		cluster=hazelcast.xml"
+
+if (configuration/cluster == "amazon")
+	integratorEntry["hazelcast.xml"] = template('
+		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+			<network>
+				<join>
+					<multicast enabled="false"></multicast>
+					<tcp-ip enabled="false"></tcp-ip>
+					<aws enabled="true">
+						<region>${when(configuration/amazonCluster/region == null, "eu-central-1", configuration/amazonCluster/region)}</region>
+						<tag-key>${when(configuration/amazonCluster/tagKey == null, "cluster", configuration/amazonCluster/tagKey)}</tag-key>
+						<tag-value>${when(configuration/amazonCluster/tagValue == null, serverGroup, configuration/amazonCluster/tagValue)}</tag-value>
+					</aws>
+				</join>
+			</network>
+		</hazelcast>')
+		
+else if (configuration/cluster == "fixed")
+	integratorEntry["hazelcast.xml"] = template('
+		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+			<network>
+				<join>
+					<multicast enabled="false" />
+					<tcp-ip enabled="true">
+		${{
+		for (ip : configuration/fixedCluster/ips)
+			echo("				<member>" + ip + "</member>\\n")
+		}}
+					</tcp-ip>
+				</join>
+			</network>
+		</hazelcast>')
+
+else if (configuration/cluster == "multicast")
+	integratorEntry["hazelcast.xml"] = template('
+		<hazelcast xmlns="http://www.hazelcast.com/schema/config">
+			<network>
+				<join>
+					<multicast enabled="true">
+						<multicast-group>${when(configuration/multicastCluster/group == null, "224.2.2.3", configuration/multicastCluster/group)}</multicast-group>
+						<multicast-port>${when(configuration/multicastCluster/port == null, "54327", configuration/multicastCluster/port)}</multicast-port>
+						<multicast-time-to-live>${when(configuration/multicastCluster/timeToLive == null, "32", configuration/multicastCluster/timeToLive)}</multicast-time-to-live>
+						<multicast-timeout-seconds>${when(configuration/multicastCluster/timeoutSeconds == null, "2", configuration/multicastCluster/timeoutSeconds)}</multicast-timeout-seconds>
+		${{
+		if (size(configuration/multicastCluster/trustedIps) > 0)
+			echo("				<trusted-interfaces>\\n")
+		for (ip : configuration/multicastCluster/trustedIps)
+			echo("					<interface>" + ip + "</interface>\\n")
+		if (size(configuration/multicastCluster/trustedIps) > 0)
+			echo("				</trusted-interfaces>\\n")
+		}}
+					</multicast>
+				</join>
+			</network>
+		</hazelcast>')
+
+
 integratorEntry["server.properties"] = serverProperties
 
 @return
