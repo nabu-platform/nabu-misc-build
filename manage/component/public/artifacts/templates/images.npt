@@ -1892,6 +1892,23 @@
 									},
 									{
 										"arbitrary": false,
+										"name": "body.aliases",
+										"label": "%{Server Group Alias}",
+										"description": null,
+										"type": "dynamic",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"buttonAddClass": null,
+										"buttonRemoveClass": null
+									},
+									{
+										"arbitrary": false,
 										"name": "body.cluster",
 										"label": "%{Cluster Mode}",
 										"description": null,
@@ -2006,7 +2023,7 @@
 									{
 										"arbitrary": false,
 										"name": "body.fixedCluster.ips",
-										"label": "%{Ips}",
+										"label": "%{Ip}",
 										"description": null,
 										"type": "dynamic",
 										"enumerations": [],
@@ -2118,7 +2135,7 @@
 									{
 										"arbitrary": false,
 										"name": "body.multicastCluster.trustedIps",
-										"label": "%{Multicast Trusted Ips}",
+										"label": "%{Multicast Trusted Ip}",
 										"description": null,
 										"type": "dynamic",
 										"enumerations": [],
@@ -2129,7 +2146,9 @@
 											"eventFields": [],
 											"name": null
 										},
-										"hidden": "state.body.cluster != \"multicast\""
+										"hidden": "state.body.cluster != \"multicast\"",
+										"buttonAddClass": null,
+										"buttonRemoveClass": null
 									},
 									{
 										"arbitrary": false,
@@ -2191,6 +2210,13 @@
 										"serverGroup": {
 											"description": "The name of the group. This defaults to \"<project>-<environment>\"",
 											"type": "string"
+										},
+										"aliases": {
+											"type": "array",
+											"items": {
+												"description": "The aliases for this server. This can be interesting for non-production environments where you want to run multiple logical clusters on a single set.",
+												"type": "string"
+											}
 										},
 										"cluster": {
 											"description": "The type of cluster (amazon, fixed, multicast)",

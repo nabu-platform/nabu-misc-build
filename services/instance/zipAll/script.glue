@@ -33,8 +33,8 @@ serverGroup = when(configuration/serverGroup != null, configuration/serverGroup,
 
 integratorEntry = result["software/integrator"]
 
-serverProperties = template("
-	port=${port}
+serverProperties = template(
+	"port=${port}
 	repository=../../repository
 	listenerPoolSize=20
 	enableREST=true
@@ -42,6 +42,13 @@ serverProperties = template("
 	localMavenServer=http://localhost:8080/
 	group=${serverGroup}
 	")
+	
+# if we have server aliases, add them
+if (size(configuration/aliases) > 0)
+	serverProperties = serverProperties + template("
+		alias=${join(', ', configuration/aliases)}
+		")
+
 # inject cloud specific parameters
 if (hasCloud)
 	# with a tiny refactor of the cloud client, this is no longer necessary so we don't include it

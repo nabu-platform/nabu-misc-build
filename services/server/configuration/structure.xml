@@ -1,6 +1,7 @@
 <structure name="configuration">
     <field comment="5555" minOccurs="0" name="port" type="java.lang.Long"/>
     <field comment="The name of the group. This defaults to &quot;&lt;project&gt;-&lt;environment&gt;&quot;" minOccurs="0" name="serverGroup" type="java.lang.String"/>
+    <field comment="The aliases for this server. This can be interesting for non-production environments where you want to run multiple logical clusters on a single set." maxOccurs="unbounded" minOccurs="0" name="aliases" type="java.lang.String"/>
     <field comment="The type of cluster (amazon, fixed, multicast)" minOccurs="0" name="cluster" type="java.lang.String"/>
     <structure minOccurs="0" name="amazonCluster">
         <field minOccurs="0" name="region" type="java.lang.String"/>
