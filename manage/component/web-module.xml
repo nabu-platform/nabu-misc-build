@@ -12,5 +12,8 @@
     <webFragments>nabu.misc.build.manage.rest.instance.downloadProject</webFragments>
     <webFragments>nabu.misc.build.manage.rest.environment.configuration.get</webFragments>
     <webFragments>nabu.misc.build.manage.rest.environment.configuration.set</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.build.clone</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.instance.downloadPublic</webFragments>
+    <webFragments>nabu.misc.build.manage.rest.environment.setApiKey</webFragments>
     <audience>MANAGER</audience>
 </webModule>

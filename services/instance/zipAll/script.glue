@@ -129,11 +129,33 @@ else if (configuration/cluster == "multicast")
 
 integratorEntry["server.properties"] = serverProperties
 
+# if we have a log path, add it
+if (configuration/logging/filePath != null)
+	logback = integratorEntry["logback.xml"]
+	logPath = configuration/logging/filePath
+	# if we don't end in a /, add it
+	if (logPath !~ ".*/$")
+		logPath = logPath + "/"
+	logback = replace("<file>", "<file>" + logPath, logback)
+	logback = replace("<fileNamePattern>", "<fileNamePattern>" + logPath, logback)
+	integratorEntry["logback.xml"] = logback
+
+if (configuration/logging/maxHistory != null)
+	logback = integratorEntry["logback.xml"]
+	logback = replace("<maxHistory>[^<]+</maxHistory>", "<maxHistory>" + configuration/logging/maxHistory + "</maxHistory>", logback)
+	integratorEntry["logback.xml"] = logback
+	
+if (configuration/logging/totalSizeCap != null)
+	logback = integratorEntry["logback.xml"]
+	logback = replace("<totalSizeCap>[^<]+</totalSizeCap>", "<totalSizeCap>" + configuration/logging/totalSizeCap + "</totalSizeCap>", logback)
+	integratorEntry["logback.xml"] = logback
+
 result = structure(result, lambda("release.xml"): template(
 	"<release>
 		<image>${projectName}</image>
 		<version>${imageVersion}</version>
 		<created>${date()}</created>
+		<environment>${environment}</environment>
 	</release>
 	"))
 

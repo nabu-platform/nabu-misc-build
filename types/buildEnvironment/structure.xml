@@ -6,4 +6,5 @@
     <field name="name" type="java.lang.String"/>
     <field comment="Default is also &quot;runtime&quot;, can set to &quot;test&quot;. Test environments can be used to perform automated testing." minOccurs="0" name="scope" type="java.lang.String"/>
     <field comment="The configuration for this environment" minOccurs="0" name="configuration" type="java.lang.String"/>
+    <field comment="An optional password for this environment, this is needed to automatically download the zip. Note that the id is used as salt." minOccurs="0" name="apiKey" type="java.lang.String"/>
 </structure>

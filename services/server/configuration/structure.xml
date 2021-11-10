@@ -18,5 +18,10 @@
         <field comment="The timeout seconds (e.g. 2). Specifies the time in seconds that a member should wait for a valid multicast response from another member running in the network before declaring itself the leader member (the first member joined to the cluster) and creating its own cluster. Too high makes the servers wait, too short makes them decide too early that they should strike out on their own." minOccurs="0" name="timeoutSeconds" type="java.lang.Long"/>
         <field maxOccurs="unbounded" minOccurs="0" name="trustedIps" type="java.lang.String"/>
     </structure>
-    <field comment="Where the data: alias should point. It's a default for data storage." minOccurs="0" name="dataPath" type="java.lang.String"/>
+    <structure minOccurs="0" name="logging">
+        <field comment="The file path where the logs will be stored. This should be a file path without explicit scheme" minOccurs="0" name="filePath" type="java.lang.String"/>
+        <field comment="Amount of days that the history is kept" minOccurs="0" name="maxHistory" type="java.lang.String"/>
+        <field comment="The total size cap of the logging" minOccurs="0" name="totalSizeCap" type="java.lang.String"/>
+    </structure>
+    <field comment="Where the data: alias should point. It's a default for data storage. This should be a fully qualified URI." minOccurs="0" name="dataPath" type="java.net.URI"/>
 </structure>

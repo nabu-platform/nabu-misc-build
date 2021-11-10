@@ -4,8 +4,6 @@
 	"description": "Manage server images",
 	"icon": "images/deployment/server-images.png",
 	"content": {
-		"type": "page",
-		"content": {
 	"label": "Images",
 	"rows": [
 		{
@@ -184,7 +182,7 @@
 			"align": null,
 			"on": null,
 			"collapsed": false,
-			"name": null
+			"name": "Image list"
 		},
 		{
 			"id": 7,
@@ -403,6 +401,30 @@
 								"close": false,
 								"type": "button",
 								"useSelection": false
+							},
+							{
+								"name": "updatePassword",
+								"icon": "fa-key",
+								"class": "success-text",
+								"label": null,
+								"condition": "state.record.apiKey == null",
+								"refresh": false,
+								"global": false,
+								"close": false,
+								"type": "button",
+								"useSelection": false
+							},
+							{
+								"name": "updatePassword",
+								"icon": "fa-key",
+								"class": "danger-text",
+								"label": null,
+								"condition": "state.record.apiKey != null",
+								"refresh": false,
+								"global": false,
+								"close": false,
+								"type": "button",
+								"useSelection": false
 							}
 						],
 						"filters": [],
@@ -489,7 +511,8 @@
 						"multiselect": false,
 						"styles": [],
 						"refreshOn": [
-							"createdBuildEnvironment"
+							"createdBuildEnvironment",
+							"updatedPassword"
 						],
 						"showRefresh": false,
 						"result": {
@@ -534,6 +557,12 @@
 								"format": null,
 								"custom": null,
 								"styles": []
+							},
+							"apiKey": {
+								"label": null,
+								"format": null,
+								"custom": null,
+								"styles": []
 							}
 						},
 						"operation": "nabu.misc.build.crud.buildEnvironment.services.list",
@@ -567,7 +596,7 @@
 			"align": null,
 			"on": null,
 			"collapsed": false,
-			"name": null
+			"name": "Image details"
 		},
 		{
 			"id": 15,
@@ -828,331 +857,6 @@
 					},
 					"$$initialize": null,
 					"result": {}
-				},
-				{
-					"id": 23,
-					"rows": [],
-					"alias": "data-table-list",
-					"bindings": {
-						"limit": null,
-						"offset": null,
-						"orderBy": null,
-						"availableAt": "selectInstance.created",
-						"properties": null
-					},
-					"name": "Environments",
-					"state": {
-						"autoRefresh": null,
-						"orderBy": [],
-						"filterPlaceHolder": null,
-						"filterType": "data-combo-filter",
-						"title": "Instance Environment",
-						"limit": 10,
-						"actions": [
-							{
-								"name": "downloadEnvironment",
-								"icon": "fa-download",
-								"class": null,
-								"label": null,
-								"condition": null,
-								"refresh": false,
-								"global": false,
-								"close": false,
-								"type": "button",
-								"useSelection": false
-							}
-						],
-						"filters": [],
-						"fields": [
-							{
-								"label": "%{Name}",
-								"fragments": [
-									{
-										"type": "data",
-										"key": "name",
-										"content": null,
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"form": {}
-									}
-								],
-								"styles": [],
-								"hidden": null
-							},
-							{
-								"label": "%{Scope}",
-								"fragments": [
-									{
-										"type": "data",
-										"key": "scope",
-										"content": null,
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"form": {}
-									}
-								],
-								"styles": [],
-								"hidden": null
-							}
-						],
-						"updateOperation": null,
-						"updateBindings": {},
-						"multiselect": false,
-						"styles": [],
-						"refreshOn": [],
-						"showRefresh": false,
-						"result": {
-							"buildImageId": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"id": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"name": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"scope": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"started": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"stopped": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"configuration": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							}
-						},
-						"operation": "nabu.misc.build.crud.buildEnvironment.services.list",
-						"comboFilter": {
-							"useTags": true
-						},
-						"useNativeTable": true
-					},
-					"target": "page",
-					"on": "selectInstance",
-					"class": null,
-					"customId": null,
-					"width": 1,
-					"height": null,
-					"instances": {},
-					"condition": null,
-					"devices": [],
-					"clickEvent": {
-						"eventFields": [],
-						"name": null
-					},
-					"$$initialize": null,
-					"result": {}
-				},
-				{
-					"id": 20,
-					"rows": [],
-					"alias": "data-table-list",
-					"bindings": {
-						"limit": null,
-						"offset": null,
-						"orderBy": null,
-						"buildInstanceId": "selectInstance.id",
-						"properties": null
-					},
-					"name": "Projects",
-					"state": {
-						"autoRefresh": null,
-						"orderBy": [],
-						"filterPlaceHolder": null,
-						"filterType": "data-combo-filter",
-						"title": "Instance Projects",
-						"limit": 10,
-						"actions": [],
-						"filters": [],
-						"fields": [
-							{
-								"label": "%{Name}",
-								"fragments": [
-									{
-										"type": "data",
-										"key": "name",
-										"content": null,
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"form": {}
-									}
-								],
-								"styles": [],
-								"hidden": null
-							},
-							{
-								"label": "%{Release}",
-								"fragments": [
-									{
-										"type": "text",
-										"content": "r",
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"key": null,
-										"disabled": null,
-										"hidden": null,
-										"form": {},
-										"dateFormat": null,
-										"tag": null,
-										"html": null,
-										"amountOfDecimals": null,
-										"multiline": false
-									},
-									{
-										"type": "data",
-										"key": "release",
-										"content": null,
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"form": {},
-										"dateFormat": null,
-										"tag": null,
-										"html": null,
-										"amountOfDecimals": null
-									},
-									{
-										"type": "text",
-										"content": ".",
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"key": null,
-										"disabled": null,
-										"hidden": null,
-										"form": {},
-										"dateFormat": null,
-										"tag": null,
-										"html": null,
-										"amountOfDecimals": null,
-										"multiline": false
-									},
-									{
-										"type": "data",
-										"content": null,
-										"format": null,
-										"javascript": null,
-										"template": null,
-										"class": null,
-										"key": "patch",
-										"disabled": null,
-										"hidden": null,
-										"form": {},
-										"dateFormat": null,
-										"tag": null,
-										"html": null,
-										"amountOfDecimals": null
-									}
-								],
-								"styles": [],
-								"hidden": null
-							}
-						],
-						"updateOperation": null,
-						"updateBindings": {},
-						"multiselect": false,
-						"styles": [],
-						"refreshOn": [],
-						"showRefresh": false,
-						"result": {
-							"buildInstanceId": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"buildProjectId": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"id": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"name": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"patch": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"rc": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							},
-							"release": {
-								"label": null,
-								"format": null,
-								"custom": null,
-								"styles": []
-							}
-						},
-						"operation": "nabu.misc.build.crud.buildInstanceProject.services.list",
-						"comboFilter": {
-							"useTags": true
-						},
-						"useNativeTable": true
-					},
-					"target": "page",
-					"on": "selectInstance",
-					"class": null,
-					"customId": null,
-					"width": 1,
-					"height": null,
-					"instances": {},
-					"condition": null,
-					"devices": [],
-					"clickEvent": {
-						"eventFields": [],
-						"name": null
-					},
-					"$$initialize": null,
-					"result": {}
 				}
 			],
 			"class": null,
@@ -1163,7 +867,415 @@
 			"align": null,
 			"on": null,
 			"collapsed": false,
-			"name": null
+			"name": "Instance list"
+		},
+		{
+			"id": 28,
+			"cells": [
+				{
+					"id": 29,
+					"rows": [
+						{
+							"id": 30,
+							"cells": [
+								{
+									"id": 23,
+									"rows": [],
+									"alias": "data-table-list",
+									"bindings": {
+										"limit": null,
+										"offset": null,
+										"orderBy": null,
+										"availableAt": "selectInstance.created",
+										"properties": null,
+										"buildImageId": "selectInstance.buildImageId"
+									},
+									"name": "Environments",
+									"state": {
+										"autoRefresh": null,
+										"orderBy": [],
+										"filterPlaceHolder": null,
+										"filterType": "data-combo-filter",
+										"title": "Instance Environment",
+										"limit": 10,
+										"actions": [
+											{
+												"name": "downloadEnvironment",
+												"icon": "fa-download",
+												"class": null,
+												"label": null,
+												"condition": null,
+												"refresh": false,
+												"global": false,
+												"close": false,
+												"type": "button",
+												"useSelection": false
+											}
+										],
+										"filters": [],
+										"fields": [
+											{
+												"label": "%{Name}",
+												"fragments": [
+													{
+														"type": "data",
+														"key": "name",
+														"content": null,
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"form": {}
+													}
+												],
+												"styles": [],
+												"hidden": null
+											},
+											{
+												"label": "Link",
+												"info": null,
+												"infoIcon": null,
+												"fragments": [
+													{
+														"type": "javascript",
+														"content": "function() {\n\tvar instance = $value(\"selectInstance\");\n\tvar parameters = $services.swagger.parameters(\"nabu.misc.build.manage.rest.instance.downloadPublic\", {\n\t\timageId: instance.buildImageId,\n\t\tinstanceId: instance.id,\n\t\tenvironmentId: state.id\n\t});\n\tvar url = window.location.protocol + \"//\" + window.location.host\n\t\t+ parameters.url;\n\treturn \"<a href='\" + url + \"' target='_blank'>Download</a>\";\n}\n",
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"key": null,
+														"disabled": null,
+														"hidden": null,
+														"form": {},
+														"dateFormat": null,
+														"tag": null,
+														"html": true,
+														"amountOfDecimals": null
+													}
+												],
+												"hidden": null,
+												"styles": [],
+												"arbitrary": false
+											},
+											{
+												"label": "%{Scope}",
+												"fragments": [
+													{
+														"type": "data",
+														"key": "scope",
+														"content": null,
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"form": {}
+													}
+												],
+												"styles": [],
+												"hidden": null
+											}
+										],
+										"updateOperation": null,
+										"updateBindings": {},
+										"multiselect": false,
+										"styles": [],
+										"refreshOn": [],
+										"showRefresh": false,
+										"result": {
+											"buildImageId": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"id": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"name": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"scope": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"started": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"stopped": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"configuration": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"apiKey": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											}
+										},
+										"operation": "nabu.misc.build.crud.buildEnvironment.services.list",
+										"comboFilter": {
+											"useTags": true
+										},
+										"useNativeTable": true
+									},
+									"target": "page",
+									"on": "selectInstance",
+									"class": null,
+									"customId": null,
+									"width": 1,
+									"height": null,
+									"instances": {},
+									"condition": null,
+									"devices": [],
+									"clickEvent": {
+										"eventFields": [],
+										"name": null
+									},
+									"$$initialize": null,
+									"result": {}
+								},
+								{
+									"id": 20,
+									"rows": [],
+									"alias": "data-table-list",
+									"bindings": {
+										"limit": null,
+										"offset": null,
+										"orderBy": null,
+										"buildInstanceId": "selectInstance.id",
+										"properties": null
+									},
+									"name": "Projects",
+									"state": {
+										"autoRefresh": null,
+										"orderBy": [],
+										"filterPlaceHolder": null,
+										"filterType": "data-combo-filter",
+										"title": "Instance Projects",
+										"limit": 10,
+										"actions": [],
+										"filters": [],
+										"fields": [
+											{
+												"label": "%{Name}",
+												"fragments": [
+													{
+														"type": "data",
+														"key": "name",
+														"content": null,
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"form": {}
+													}
+												],
+												"styles": [],
+												"hidden": null
+											},
+											{
+												"label": "%{Release}",
+												"fragments": [
+													{
+														"type": "text",
+														"content": "r",
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"key": null,
+														"disabled": null,
+														"hidden": null,
+														"form": {},
+														"dateFormat": null,
+														"tag": null,
+														"html": null,
+														"amountOfDecimals": null,
+														"multiline": false
+													},
+													{
+														"type": "data",
+														"key": "release",
+														"content": null,
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"form": {},
+														"dateFormat": null,
+														"tag": null,
+														"html": null,
+														"amountOfDecimals": null
+													},
+													{
+														"type": "text",
+														"content": ".",
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"key": null,
+														"disabled": null,
+														"hidden": null,
+														"form": {},
+														"dateFormat": null,
+														"tag": null,
+														"html": null,
+														"amountOfDecimals": null,
+														"multiline": false
+													},
+													{
+														"type": "data",
+														"content": null,
+														"format": null,
+														"javascript": null,
+														"template": null,
+														"class": null,
+														"key": "patch",
+														"disabled": null,
+														"hidden": null,
+														"form": {},
+														"dateFormat": null,
+														"tag": null,
+														"html": null,
+														"amountOfDecimals": null
+													}
+												],
+												"styles": [],
+												"hidden": null
+											}
+										],
+										"updateOperation": null,
+										"updateBindings": {},
+										"multiselect": false,
+										"styles": [],
+										"refreshOn": [],
+										"showRefresh": false,
+										"result": {
+											"buildInstanceId": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"buildProjectId": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"id": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"name": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"patch": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"rc": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											},
+											"release": {
+												"label": null,
+												"format": null,
+												"custom": null,
+												"styles": []
+											}
+										},
+										"operation": "nabu.misc.build.crud.buildInstanceProject.services.list",
+										"comboFilter": {
+											"useTags": true
+										},
+										"useNativeTable": true
+									},
+									"target": "page",
+									"on": "selectInstance",
+									"class": null,
+									"customId": null,
+									"width": 1,
+									"height": null,
+									"instances": {},
+									"condition": null,
+									"devices": [],
+									"clickEvent": {
+										"eventFields": [],
+										"name": null
+									},
+									"$$initialize": null,
+									"result": {}
+								}
+							],
+							"class": "full-width",
+							"customId": null,
+							"instances": {},
+							"condition": null,
+							"direction": "vertical",
+							"align": null,
+							"on": null,
+							"collapsed": false,
+							"name": null
+						}
+					],
+					"alias": null,
+					"bindings": {},
+					"name": null,
+					"state": {},
+					"target": "sidebar",
+					"on": "selectInstance",
+					"class": null,
+					"customId": null,
+					"width": 1,
+					"height": null,
+					"instances": {},
+					"condition": null,
+					"devices": [],
+					"clickEvent": {
+						"eventFields": [],
+						"name": null
+					}
+				}
+			],
+			"class": "full-width",
+			"customId": null,
+			"instances": {},
+			"condition": null,
+			"direction": null,
+			"align": null,
+			"on": null,
+			"collapsed": false,
+			"name": "Instance details"
 		},
 		{
 			"id": 5,
@@ -1504,6 +1616,10 @@
 										},
 										"configuration": {
 											"description": "The configuration for this environment",
+											"type": "string"
+										},
+										"apiKey": {
+											"description": "An optional password for this environment, this is needed to automatically download the zip. Note that the id is used as salt.",
 											"type": "string"
 										}
 									}
@@ -1931,7 +2047,7 @@
 										"name": "body.amazonCluster",
 										"label": "%{Amazon Cluster}",
 										"description": null,
-										"type": "text",
+										"type": null,
 										"enumerations": [],
 										"value": null,
 										"group": null,
@@ -2159,7 +2275,75 @@
 										"enumerations": [],
 										"value": null,
 										"group": null,
-										"joinGroup": false
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"info": "The path where the data should be stored by default. This should be a fully qualified uri with scheme."
+									}
+								]
+							},
+							{
+								"name": "Logging",
+								"title": null,
+								"fields": [
+									{
+										"arbitrary": false,
+										"name": "body.logging.filePath",
+										"label": "%{Log File Path}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"info": "The file path where the logging will end up. This should be an absolute file path without explicit scheme.",
+										"placeholder": "Files will be stored on the execution path by default"
+									},
+									{
+										"arbitrary": false,
+										"name": "body.logging.maxHistory",
+										"label": "Max logging history (in days)",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": "row",
+										"joinGroup": false,
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"placeholder": "30",
+										"textType": null,
+										"bindings": {}
+									},
+									{
+										"arbitrary": false,
+										"name": "body.logging.totalSizeCap",
+										"label": "Max log file size",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": true,
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										},
+										"placeholder": "3GB",
+										"textType": null,
+										"bindings": {}
 									}
 								]
 							}
@@ -2172,7 +2356,9 @@
 						"event": null,
 						"synchronize": false,
 						"operation": "nabu.misc.build.manage.rest.environment.configuration.set",
-						"mode": "component"
+						"mode": "component",
+						"pageTabs": true,
+						"partialSubmit": true
 					},
 					"target": "prompt",
 					"on": "configureEnvironmentGet",
@@ -2279,8 +2465,124 @@
 												}
 											}
 										},
+										"logging": {
+											"type": "object",
+											"properties": {
+												"filePath": {
+													"description": "The file path where the logs will be stored. This should be a file path without explicit scheme",
+													"type": "string"
+												},
+												"maxHistory": {
+													"description": "Amount of days that the history is kept",
+													"type": "string"
+												},
+												"totalSizeCap": {
+													"description": "The total size cap of the logging",
+													"type": "string"
+												}
+											}
+										},
 										"dataPath": {
-											"description": "Where the data: alias should point. It's a default for data storage.",
+											"description": "Where the data: alias should point. It's a default for data storage. This should be a fully qualified URI.",
+											"type": "string",
+											"format": "uri"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			],
+			"class": null,
+			"customId": null,
+			"instances": {},
+			"condition": null,
+			"direction": null,
+			"align": null,
+			"on": null,
+			"collapsed": false,
+			"name": null
+		},
+		{
+			"id": 31,
+			"cells": [
+				{
+					"id": 32,
+					"rows": [],
+					"alias": "page-form",
+					"bindings": {
+						"environmentId": "updatePassword.id",
+						"body.apiKey": null
+					},
+					"name": null,
+					"state": {
+						"title": "Set API key for environment",
+						"immediate": false,
+						"pages": [
+							{
+								"name": "Form Fields",
+								"title": null,
+								"fields": [
+									{
+										"arbitrary": false,
+										"name": "body.apiKey",
+										"label": "%{Api Key}",
+										"description": null,
+										"type": "text",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"textType": null,
+										"bindings": {},
+										"validationSuccessEvent": {
+											"eventFields": [],
+											"name": null
+										}
+									}
+								]
+							}
+						],
+						"class": null,
+						"ok": "Update",
+						"edit": "Edit",
+						"next": "Next",
+						"cancel": "Cancel",
+						"event": "updatedPassword",
+						"synchronize": false,
+						"operation": "nabu.misc.build.manage.rest.environment.setApiKey",
+						"mode": "component"
+					},
+					"target": "prompt",
+					"on": "updatePassword",
+					"class": null,
+					"customId": null,
+					"width": 1,
+					"height": null,
+					"instances": {},
+					"condition": null,
+					"devices": [],
+					"clickEvent": {
+						"eventFields": [],
+						"name": null
+					},
+					"$$initialize": null,
+					"cellState": {
+						"form": {
+							"properties": {
+								"environmentId": {
+									"in": "path",
+									"required": true,
+									"name": "environmentId",
+									"pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}",
+									"type": "string",
+									"format": "uuid"
+								},
+								"body": {
+									"type": "object",
+									"properties": {
+										"apiKey": {
 											"type": "string"
 										}
 									}
@@ -2302,7 +2604,7 @@
 		}
 	],
 	"path": "/deployment/images",
-	"counter": 26,
+	"counter": 33,
 	"variables": [],
 	"query": [],
 	"actions": [

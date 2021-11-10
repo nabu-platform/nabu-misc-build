@@ -1,0 +1,127 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="96d04cd2-b17d-4226-8d89-17af159307ed">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="62fa6a42-6162-465c-9803-93d162c1f505">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="01b58327-2e46-43e1-a320-5627e54ec8e7"
+				serviceId="nabu.misc.build.crud.buildEnvironment.services.get"
+				resultName="resultb66f9646ac4540d0bb521b73b6f380a7"
+				temporaryMapping="true"
+				x="170"
+				y="91"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="54f264d3-b2b5-4471-907f-8a713649431b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/path/environmentId</from>
+				<to>id</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="dda5ec82-9a38-43e1-b9e6-b47d0139097f"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultb66f9646ac4540d0bb521b73b6f380a7/result</from>
+			<to>environment</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="dc68c9c0-4642-438c-8d91-9586308c88e0"
+			label="!environment"
+			code="404"
+			message="Environment not found" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+			disabled="false"
+			id="ee6e020f-11d6-430c-a68e-68bf4a707850"
+			query="input/content/apiKey">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Drop api key"
+				disabled="false"
+				id="9c1f7d74-982d-49aa-bf07-4cdc2b3d2bd2"
+				label="null">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Drop"
+					disabled="false"
+					id="4dbed4e8-5b5a-46b5-8ee9-89a4922763dd"
+					path="environment/apiKey" xsi:nil="true"/>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="235bf0f0-53a1-407a-9016-07b12d21dfc0">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="082429af-98e0-4032-9eeb-03e306cfaf32"
+					serviceId="nabu.utils.Security.hash"
+					resultName="result6d7bb03556d14b63ab977a198600bc3a"
+					temporaryMapping="true"
+					x="168"
+					y="89"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="3f945994-5d6c-4800-b97d-8e6e543ab24d"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>=input/content/apiKey + "::" + input/path/environmentId</from>
+					<to>string</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d556391a-a310-4f52-b822-0d4e7356d82d"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>BCRYPT</from>
+					<to>algorithm</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b5c56daf-3559-496e-9b7a-773446048163"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result6d7bb03556d14b63ab977a198600bc3a/hash</from>
+				<to>environment/apiKey</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="18abf441-16f2-4f2b-afcf-9e930f963b51">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="65dd5627-e005-43b2-919e-826b7237b913"
+				serviceId="nabu.services.jdbc.Services.update"
+				resultName="result61cb7a32347843ea84fd836641fc362f"
+				temporaryMapping="true"
+				x="150"
+				y="54"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="bade8387-950f-486e-a809-878598c0d074"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>environment</from>
+				<to>instances[0]</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>
