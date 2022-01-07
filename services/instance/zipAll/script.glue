@@ -33,6 +33,8 @@ serverGroup = when(configuration/serverGroup != null, configuration/serverGroup,
 
 integratorEntry = result["software/integrator"]
 
+mathDoubles = configuration/mathDoubles != false
+
 serverProperties = template(
 	"port=${port}
 	repository=../../repository
@@ -41,8 +43,14 @@ serverProperties = template(
 	enableMaven=true
 	localMavenServer=http://localhost:8080/
 	group=${serverGroup}
+	math.always.doubles=${mathDoubles}
 	")
 	
+if (configuration/taskTimezone != null)
+	serverProperties = serverProperties + template("
+		nabu.tasks.timezone=${configuration/taskTimezone}
+		")
+
 # if we have server aliases, add them
 if (size(configuration/aliases) > 0)
 	serverProperties = serverProperties + template("

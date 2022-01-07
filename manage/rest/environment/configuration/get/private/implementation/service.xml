@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="d713fb30-5349-4f98-b80c-f8882c6431c9">
+		id="d713fb30-5349-4f98-b80c-f8882c6431c9"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="07cbd7c3-0ede-4b71-9a39-a714b4806bc0">
+			id="07cbd7c3-0ede-4b71-9a39-a714b4806bc0"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="51e16723-52dc-46ea-b759-df7a0d604e84"
@@ -39,14 +41,17 @@
 			disabled="false"
 			id="cf2c0ae2-bfdd-4995-9597-07e42a53e112"
 			label="!environment"
+			lineNumber="3"
 			code="404" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
-			id="4f06db49-9f7e-42d8-a371-a73c11190465">
+			id="4f06db49-9f7e-42d8-a371-a73c11190465"
+			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="66db2424-dcc8-44a9-88b8-cabf6ef1923e"
-				label="environment/configuration != null">
+				label="environment/configuration != null"
+				lineNumber="5">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="f38e655f-0c5a-484b-99fc-dbde53bb6112"
@@ -96,38 +101,68 @@
 				<to>output/content</to>
 			</steps>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				disabled="false"
-				id="ddd473cb-f031-40ad-9e5b-17b2440d7e62">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				id="7331f429-668c-4cd2-a863-c9e698a89c81"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
-					id="1bb66b99-9dab-498e-987a-4650c058147d"
-					serviceId="nabu.utils.reflection.Type.newInstance"
-					resultName="result8e9c7dacf4084cc5b7e2292c882baa4f"
-					temporaryMapping="true"
-					x="207"
-					y="139"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
+					id="ddd473cb-f031-40ad-9e5b-17b2440d7e62"
+					lineNumber="7">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="1bb66b99-9dab-498e-987a-4650c058147d"
+						serviceId="nabu.utils.reflection.Type.newInstance"
+						resultName="result8e9c7dacf4084cc5b7e2292c882baa4f"
+						temporaryMapping="true"
+						x="207"
+						y="139"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="5d603c4f-0d58-4d0d-b760-09126a86e769"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>nabu.misc.build.services.server.configuration</from>
+						<to>typeId</to>
+					</steps>
+				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
-						id="5d603c4f-0d58-4d0d-b760-09126a86e769"
+						id="ed710643-c8c2-437f-b2ee-8d78641905ce"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result8e9c7dacf4084cc5b7e2292c882baa4f/typeInstance</from>
+					<to>output/content</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Set default values"
+					disabled="false"
+					id="e889d730-d973-43a9-9af1-841a6b0f5161"
+					lineNumber="8">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="2a6a40d3-fae0-4926-93c1-155214cd3864"
 						mask="false"
 						optional="false"
 						fixedValue="true">
-					<from>nabu.misc.build.services.server.configuration</from>
-					<to>typeId</to>
+					<from>true</from>
+					<to>output/content/mathDoubles</to>
 				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="ed710643-c8c2-437f-b2ee-8d78641905ce"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>result8e9c7dacf4084cc5b7e2292c882baa4f/typeInstance</from>
-				<to>output/content</to>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7150bf60-91f4-43f5-a6c4-544129f5f521"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>CET</from>
+					<to>output/content/taskTimezone</to>
+				</steps>
 			</steps>
 		</steps>
 	</steps>
