@@ -1,6 +1,7 @@
 <structure name="pipeline">
     <structure name="input">
         <field name="project" type="java.lang.String"/>
+        <field minOccurs="0" name="refresh" type="java.lang.Boolean"/>
     </structure>
     <structure name="output">
         <structure definition="nabu.misc.git.types.GitBuild" minOccurs="0" name="build"/>

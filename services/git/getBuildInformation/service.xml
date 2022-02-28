@@ -1,10 +1,13 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="5be210fd-4041-487f-9a09-bbbbee04642e">
+		id="5be210fd-4041-487f-9a09-bbbbee04642e"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			comment="First perform a build, this streamlines the process"
 			disabled="false"
-			id="4f08ff19-453e-4778-80cf-27fb6986b727">
+			id="4f08ff19-453e-4778-80cf-27fb6986b727"
+			label="input/refresh"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="a29bc776-1658-462c-874d-d6056795f1e8"
@@ -29,7 +32,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="cabc1070-5623-4c48-9a5e-4427624d1932">
+			id="cabc1070-5623-4c48-9a5e-4427624d1932"
+			lineNumber="3">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="2799c1ca-6219-4bbb-8c88-bd1137e34206"

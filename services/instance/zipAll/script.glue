@@ -65,6 +65,10 @@ if (hasCloud)
 		nabu.cloud.apiKey=${cloudApiKey}
 		nabu.cloud.profile=${cloudProfile}
 		")
+	if (configuration/useInternalCloudConnection)
+		serverProperties = serverProperties + "
+			nabu.cloud.server=http://cloud-internal.nabu.be:8080
+			"
 
 if (configuration/dataPath != null)
 	serverProperties = serverProperties + template("

@@ -26,4 +26,5 @@
     <field comment="Where the data: alias should point. It's a default for data storage. This should be a fully qualified URI." minOccurs="0" name="dataPath" type="java.net.URI"/>
     <field minOccurs="0" name="taskTimezone" type="java.lang.String"/>
     <field minOccurs="0" name="mathDoubles" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="useInternalCloudConnection" type="java.lang.Boolean"/>
 </structure>

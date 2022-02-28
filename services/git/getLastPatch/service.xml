@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="edb483cd-ae4e-4815-9c69-4819f91127d7">
+		id="edb483cd-ae4e-4815-9c69-4819f91127d7"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="ba5dd80f-a079-42e4-b3d6-db38f3172cc9">
+			id="ba5dd80f-a079-42e4-b3d6-db38f3172cc9"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="2b967f0d-da12-4a94-b29c-715175541b86"
@@ -24,6 +26,15 @@
 				<from>input/project</from>
 				<to>project</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b9463c2d-fd3b-4d97-b067-32a1fcd5b38d"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>false</from>
+				<to>refresh</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
@@ -38,12 +49,14 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="b033b757-88c0-40dc-aa9c-c1df7e4ef3e1"
+			lineNumber="3"
 			query="input/release">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="Get the highest version"
 				disabled="false"
 				id="8585aa88-8aee-46dc-a451-765019cea538"
-				label="null">
+				label="null"
+				lineNumber="4">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="e5a7f0fa-185b-4881-a170-fcdc0f570bcf"
@@ -78,7 +91,8 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="Get specific version"
 				disabled="false"
-				id="a4c8cb52-c447-4bfc-9315-1f931396ae20">
+				id="a4c8cb52-c447-4bfc-9315-1f931396ae20"
+				lineNumber="5">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="bf7276a6-368b-49bc-9eae-beef37e3492e"
@@ -94,10 +108,12 @@
 			disabled="false"
 			id="e9ac56d3-3372-49dd-8d85-f2e3b101adae"
 			label="!release"
+			lineNumber="6"
 			message="Could not find release" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="6779d926-d9b1-4e28-a35a-8a8cfa37d57b">
+			id="6779d926-d9b1-4e28-a35a-8a8cfa37d57b"
+			lineNumber="7">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="309555af-a1d9-4aa6-8b01-3573a338afe2"
@@ -113,18 +129,18 @@
 				serviceId="nabu.utils.Object.last"
 				resultName="result28898fef3c96483c9c32f4f0f9ab3f32"
 				temporaryMapping="true"
-				x="184"
-				y="250"
-				invocationOrder="0"
+				x="535"
+				y="251"
+				invocationOrder="1"
 				asynchronous="false"
 				recache="false">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="0e23014e-5d0b-4dcb-a5a1-05557a44e780"
+					id="1881e02d-7c4a-4429-a9f7-262112abd660"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>release/patchVersions</from>
+				<from>resultccbe05ddffca4e58aa6341a4939adc4c/list</from>
 				<to>options</to>
 			</steps>
 		</steps>
@@ -136,6 +152,36 @@
 				fixedValue="false">
 			<from>result28898fef3c96483c9c32f4f0f9ab3f32/last</from>
 			<to>output/patchVersion</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="04bd8ff7-775d-4100-8885-59df6023d2ec"
+				serviceId="nabu.utils.List.sort"
+				resultName="resultccbe05ddffca4e58aa6341a4939adc4c"
+				temporaryMapping="true"
+				x="47"
+				y="155"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4f2205d0-2739-4f0e-9139-f291f5c2ee77"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>release/patchVersions</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4acd358c-ca46-4116-916e-a1bfb3fd3dee"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>patch</from>
+				<to>fields[0]</to>
+			</steps>
 		</steps>
 	</steps>
 </sequence>

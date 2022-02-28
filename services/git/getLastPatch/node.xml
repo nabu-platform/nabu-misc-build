@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T20:26:19.027+02:00" lastModified="2021-10-26T10:57:28.328+02:00" leaf="true" version="10">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T20:26:19.027+02:00" lastModified="2022-01-19T15:50:25.948+01:00" leaf="true" version="13">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
+    <references>nabu.utils.List.sort</references>
     <references>java.lang.Long</references>
     <references>nabu.misc.git.types.GitBuild</references>
     <references>nabu.utils.Object.last</references>
