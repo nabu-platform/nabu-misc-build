@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T22:56:29.320+02:00" lastModified="2021-10-27T21:13:29.897+02:00" leaf="true" version="23">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2021-10-25T22:56:29.320+02:00" lastModified="2022-04-30T11:40:31.849+02:00" leaf="true" version="27">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
     <references>nabu.misc.build.crud.buildImage.types.output</references>
-    <references>[B</references>
     <references>nabu.misc.build.crud.buildEnvironment.services.list</references>
+    <references>nabu.misc.git.Services.environments</references>
     <references>java.util.UUID</references>
     <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
     <references>nabu.misc.build.crud.buildInstance.types.output</references>

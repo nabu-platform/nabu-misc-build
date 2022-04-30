@@ -2,6 +2,7 @@
 <restInterface>
     <method>GET</method>
     <path>/available</path>
+    <queryParameters>workspace</queryParameters>
     <role>$user</role>
     <output>nabu.misc.build.manage.rest.build.listOutput</output>
     <lenient>true</lenient>

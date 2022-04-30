@@ -1,5 +1,6 @@
 <structure name="pipeline">
     <structure name="input">
+        <field minOccurs="0" name="workspace" type="java.lang.String"/>
         <field name="project" type="java.lang.String"/>
         <field minOccurs="0" name="refresh" type="java.lang.Boolean"/>
     </structure>

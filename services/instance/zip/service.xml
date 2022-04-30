@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="91385d46-7c8a-4f33-a649-c1e523c7365f">
+		id="91385d46-7c8a-4f33-a649-c1e523c7365f"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="006de48e-3db1-4fd5-97f9-9863c81e7f37">
+			id="006de48e-3db1-4fd5-97f9-9863c81e7f37"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="78aea47c-e581-442d-b959-386856d06d22"
@@ -39,10 +41,12 @@
 			disabled="false"
 			id="d86d6f89-bcd5-4129-bf91-1d8d7a0bb86c"
 			label="!buildInstance"
+			lineNumber="3"
 			message="Could not find build instance" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="e1174429-3063-4dde-9134-620ea86c373d">
+			id="e1174429-3063-4dde-9134-620ea86c373d"
+			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="473668e3-621f-497a-80ea-08994579a335"
@@ -78,10 +82,12 @@
 			disabled="false"
 			id="13cf8fc0-3f78-4b3e-877e-ee9e2b23d08e"
 			label="!projects"
+			lineNumber="5"
 			message="No projects in image instance" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="d52f0371-a5f0-4646-a2fd-c07f26cf5775">
+			id="d52f0371-a5f0-4646-a2fd-c07f26cf5775"
+			lineNumber="6">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="c89e31be-dd9c-4122-9550-b0410257df78"
@@ -117,10 +123,12 @@
 			disabled="false"
 			id="79bf6765-3bd9-414e-b080-96fbf598a0c1"
 			label="!buildImage"
+			lineNumber="7"
 			message="Could not find build image" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="de0f09bc-54e0-4206-92d6-c7b126bf181c">
+			id="de0f09bc-54e0-4206-92d6-c7b126bf181c"
+			lineNumber="8">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="05181078-44e9-4e81-8399-9ee1a8816a5c"
@@ -165,15 +173,72 @@
 			disabled="false"
 			id="c41d0888-ac38-44cf-85bb-51ca8bfe455e"
 			label="!buildEnvironment"
+			lineNumber="9"
 			message="Could not find environment" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.For"
 			disabled="false"
 			id="de87029f-e5cf-4ac5-aaa9-3b17c776a101"
+			lineNumber="10"
 			variable="project"
 			into="projectZips">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
-				id="03b5122f-4755-4939-ae05-a2f6dcc11f3e">
+				id="e1b26ce1-0574-48d4-b3be-62d74aea4849"
+				lineNumber="11">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="5d348394-ad76-49b3-829a-b2961d8e4510"
+					serviceId="nabu.misc.git.Services.environments"
+					resultName="resultdb5ba1d43ca04b2f91c36f9e2453ae68"
+					temporaryMapping="true"
+					x="109"
+					y="76"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="37f1b809-d884-4d95-8d78-0729928b9047"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/name</from>
+					<to>name</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="31a723fc-f073-4198-ad82-b32ab1e77612"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/release</from>
+					<to>release</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="f7c0952e-b87e-448c-aa22-959f19ea6e6e"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/patch</from>
+					<to>patch</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5398f551-e8b2-48d5-ab1c-3679a9a870f1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdb5ba1d43ca04b2f91c36f9e2453ae68/environments</from>
+				<to>environments</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="03b5122f-4755-4939-ae05-a2f6dcc11f3e"
+				label="input/environment # environments"
+				lineNumber="12">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="50958791-5804-4953-9da6-00634c85210b"
@@ -212,6 +277,15 @@
 					<from>false</from>
 					<to>includeRoot</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="34dc8093-1591-40e4-b59d-53982d0ddea8"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/workspace</from>
+					<to>workspace</to>
+				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
@@ -236,7 +310,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="b350319d-fdf5-4e23-987d-7158ad3964f8">
+			id="b350319d-fdf5-4e23-987d-7158ad3964f8"
+			lineNumber="13">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="03853c0e-436e-4957-92a4-94dacd05737c"
@@ -319,7 +394,8 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="66db2424-dcc8-44a9-88b8-cabf6ef1923e"
-			label="buildEnvironment/configuration != null">
+			label="buildEnvironment/configuration != null"
+			lineNumber="14">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="f38e655f-0c5a-484b-99fc-dbde53bb6112"
@@ -371,7 +447,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="36ea3cae-818b-4aca-a37b-705d478c3b11">
+			id="36ea3cae-818b-4aca-a37b-705d478c3b11"
+			lineNumber="15">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="56635119-7db6-4c87-8937-6387cab93aaa"

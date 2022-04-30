@@ -20,4 +20,5 @@
     </structure>
     <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" minOccurs="0" name="buildEnvironment"/>
     <structure definition="nabu.misc.build.services.server.configuration" name="configuration"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="environments" type="java.lang.String"/>
 </structure>

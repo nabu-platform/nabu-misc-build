@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2021-10-26T17:26:34.412+02:00" leaf="true" version="58">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2022-04-30T12:55:46.918+02:00" leaf="true" version="65">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
-    <references>nabu.misc.build.crud.buildInstance.types.createInput</references>
     <references>nabu.misc.build.crud.buildImage.types.output</references>
-    <references>nabu.misc.build.types.buildInstanceProject</references>
     <references>nabu.misc.build.services.platform.downloadJson</references>
     <references>nabu.misc.build.crud.buildProject.services.list</references>
     <references>nabu.misc.build.crud.buildInstance.types.createOutput</references>
     <references>nabu.utils.Server.uuid</references>
-    <references>nabu.misc.build.crud.buildInstance.services.list</references>
     <references>nabu.misc.build.crud.buildInstance.services.create</references>
-    <references>nabu.misc.build.services.git.getLastPatch</references>
-    <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
-    <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>nabu.misc.git.Services.getReleaseNotes</references>
     <references>nabu.misc.build.crud.buildInstanceProject.types.output</references>
     <references>nabu.misc.build.crud.buildImage.services.get</references>
     <references>nabu.misc.build.services.platform.calculateProfileHash</references>
+    <references>nabu.utils.String.join</references>
     <references>nabu.services.jdbc.Services.insert</references>
-    <references>be.nabu.eai.module.git.GitInformation</references>
     <references>java.lang.Boolean</references>
-    <references>nabu.misc.build.crud.buildProject.types.output</references>
     <references>nabu.misc.build.crud.buildInstance.services.get</references>
     <references>nabu.data.json.Services.marshal</references>
+    <references>nabu.misc.build.crud.buildInstance.types.createInput</references>
+    <references>nabu.misc.build.types.buildInstanceProject</references>
+    <references>nabu.misc.build.crud.buildInstance.services.list</references>
+    <references>nabu.misc.build.services.git.getLastPatch</references>
+    <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
+    <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>be.nabu.eai.module.git.GitInformation</references>
+    <references>nabu.misc.build.crud.buildProject.types.output</references>
     <references>nabu.misc.build.manage.rest.instance.createInput</references>
 </node>

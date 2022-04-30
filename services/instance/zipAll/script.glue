@@ -74,7 +74,12 @@ if (configuration/dataPath != null)
 	serverProperties = serverProperties + template("
 		resources.alias.data=${configuration/dataPath}
 		")
-
+		
+if (configuration/defaultTaskTarget != null)
+	serverProperties = serverProperties + template("
+		nabu.tasks.defaultTarget=${configuration/defaultTaskTarget}
+		")
+		
 integratorEntry["hazelcast-amazon.xml"] = null
 integratorEntry["hazelcast-fixed.xml"] = null
 integratorEntry["hazelcast-multicast.xml"] = null
@@ -92,7 +97,7 @@ if (configuration/cluster == "amazon")
 					<tcp-ip enabled="false"></tcp-ip>
 					<aws enabled="true">
 						<region>${when(configuration/amazonCluster/region == null, "eu-central-1", configuration/amazonCluster/region)}</region>
-						<tag-key>${when(configuration/amazonCluster/tagKey == null, "cluster", configuration/amazonCluster/tagKey)}</tag-key>
+						<tag-key>${when(configuration/amazonCluster/tagKey == null, "group", configuration/amazonCluster/tagKey)}</tag-key>
 						<tag-value>${when(configuration/amazonCluster/tagValue == null, serverGroup, configuration/amazonCluster/tagValue)}</tag-value>
 					</aws>
 				</join>

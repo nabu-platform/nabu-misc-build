@@ -1,0 +1,11 @@
+.page-deployment-images {
+	.page-field-fragment + .tag {
+		margin-left: 0.3rem;
+	}
+	.release-notes {
+		dt {
+			font-weight: bold;
+			margin: 1rem 0;
+		}
+	}
+}

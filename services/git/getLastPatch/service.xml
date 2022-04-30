@@ -35,6 +35,15 @@
 				<from>false</from>
 				<to>refresh</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c98f04ed-f9df-4dd5-b54c-bbc965937846"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/workspace</from>
+				<to>workspace</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"

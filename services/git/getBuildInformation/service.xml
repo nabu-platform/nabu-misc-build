@@ -54,6 +54,15 @@
 				<from>input/project</from>
 				<to>name</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e76082ee-6505-47b9-a355-1819b7151e7c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/workspace</from>
+				<to>workspace</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
