@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2022-05-01T09:06:17.053+02:00" lastModified="2022-05-01T09:11:44.088+02:00" leaf="true" version="17">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.misc.build.services.image.buildSequential</references>
+    <references>nabu.misc.build.crud.buildEnvironment.services.list</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.services.update</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.types.output</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.services.list</references>
+    <references>java.util.UUID</references>
+    <references>nabu.misc.build.crud.buildInstance.services.get</references>
+    <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>nabu.misc.build.crud.buildEnvironment.types.output</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.services.create</references>
+</node>

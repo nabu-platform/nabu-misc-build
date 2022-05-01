@@ -1,0 +1,8 @@
+<structure interface="$self:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" minOccurs="0" name="instance"/>
+    <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" maxOccurs="unbounded" minOccurs="0" name="availableEnvironments"/>
+    <structure collectionName="buildInstanceEnvironments" definition="nabu.misc.build.crud.buildInstanceEnvironment.types.output" maxOccurs="unbounded" minOccurs="0" name="availableInstances"/>
+    <structure collectionName="buildInstanceEnvironments" definition="nabu.misc.build.crud.buildInstanceEnvironment.types.output" minOccurs="0" name="availableInstance"/>
+</structure>
