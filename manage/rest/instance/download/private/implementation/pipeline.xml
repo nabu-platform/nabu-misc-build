@@ -4,4 +4,5 @@
     <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" name="buildInstance"/>
     <structure collectionName="buildImages" definition="nabu.misc.build.crud.buildImage.types.output" name="buildImage"/>
     <structure definition="nabu.misc.build.services.platform.profile" name="profile"/>
+    <structure collectionName="buildInstanceEnvironments" definition="nabu.misc.build.crud.buildInstanceEnvironment.types.output" minOccurs="0" name="environmentInstance"/>
 </structure>

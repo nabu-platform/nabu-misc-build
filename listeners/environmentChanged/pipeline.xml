@@ -1,0 +1,7 @@
+<structure interface="nabu.misc.git.hooks.environmentChanged" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" maxOccurs="unbounded" minOccurs="0" name="impactedProjects"/>
+    <field foreignKey="nabu.misc.build.types.buildInstance:id" maxOccurs="unbounded" name="buildInstanceIds" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <structure collectionName="buildInstanceEnvironments" definition="nabu.misc.build.crud.buildInstanceEnvironment.types.output" minOccurs="0" name="environment"/>
+</structure>

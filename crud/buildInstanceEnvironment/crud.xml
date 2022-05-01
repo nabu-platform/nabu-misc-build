@@ -3,13 +3,12 @@
     <allowHeaderAsQueryParameter>true</allowHeaderAsQueryParameter>
     <broadcastCreate>false</broadcastCreate>
     <broadcastUpdate>false</broadcastUpdate>
-    <coreType>nabu.misc.build.types.buildInstance</coreType>
-    <createBlacklistFields>created</createBlacklistFields>
+    <coreType>nabu.misc.build.types.buildInstanceEnvironment</coreType>
     <createRole>$user</createRole>
     <deleteRole>$user</deleteRole>
     <filters>
         <caseInsensitive>false</caseInsensitive>
-        <key>buildImageId</key>
+        <key>buildInstanceId</key>
         <operator>=</operator>
         <or>false</or>
         <input>true</input>
@@ -17,23 +16,22 @@
     </filters>
     <filters>
         <caseInsensitive>false</caseInsensitive>
-        <key>id</key>
+        <key>environment</key>
         <operator>=</operator>
         <or>false</or>
         <input>true</input>
         <vary>false</vary>
     </filters>
-    <filters>
-        <caseInsensitive>false</caseInsensitive>
-        <key>version</key>
-        <operator>=</operator>
-        <or>false</or>
-        <input>true</input>
-        <vary>false</vary>
-    </filters>
+    <foreignFields>
+        <foreignName>buildEnvironmentId:name</foreignName>
+        <localName>environment</localName>
+    </foreignFields>
+    <foreignFields>
+        <foreignName>buildEnvironmentId:scope</foreignName>
+        <localName>scope</localName>
+    </foreignFields>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
-    <updateBlacklistFields>created</updateBlacklistFields>
     <updateRole>$user</updateRole>
     <useExplicitLanguage>false</useExplicitLanguage>
     <useLanguage>false</useLanguage>

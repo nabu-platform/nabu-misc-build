@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2022-04-30T12:55:46.918+02:00" leaf="true" version="65">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T19:54:49.288+02:00" lastModified="2022-05-01T08:08:26.942+02:00" leaf="true" version="69">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <properties/>
@@ -10,6 +10,7 @@
     <references>nabu.utils.Server.uuid</references>
     <references>nabu.misc.build.crud.buildInstance.services.create</references>
     <references>nabu.misc.git.Services.getReleaseNotes</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.services.create</references>
     <references>nabu.misc.build.crud.buildInstanceProject.types.output</references>
     <references>nabu.misc.build.crud.buildImage.services.get</references>
     <references>nabu.misc.build.services.platform.calculateProfileHash</references>
@@ -20,10 +21,15 @@
     <references>nabu.data.json.Services.marshal</references>
     <references>nabu.misc.build.crud.buildInstance.types.createInput</references>
     <references>nabu.misc.build.types.buildInstanceProject</references>
+    <references>nabu.utils.Date.now</references>
     <references>nabu.misc.build.crud.buildInstance.services.list</references>
+    <references>nabu.misc.build.crud.buildEnvironment.services.list</references>
     <references>nabu.misc.build.services.git.getLastPatch</references>
     <references>nabu.misc.build.crud.buildInstanceProject.services.list</references>
     <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>nabu.misc.build.crud.buildEnvironment.types.output</references>
+    <references>nabu.misc.build.crud.buildInstanceEnvironment.types.createOutput</references>
+    <references>nabu.misc.build.services.image.buildSequential</references>
     <references>be.nabu.eai.module.git.GitInformation</references>
     <references>nabu.misc.build.crud.buildProject.types.output</references>
     <references>nabu.misc.build.manage.rest.instance.createInput</references>

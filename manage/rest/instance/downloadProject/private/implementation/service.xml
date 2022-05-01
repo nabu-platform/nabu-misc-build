@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="20ab70ac-3226-4f46-8a33-0afb55173b6b">
+		id="20ab70ac-3226-4f46-8a33-0afb55173b6b"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="53afeca9-9a6b-4ff0-ae3c-bbbaa7886558">
+			id="53afeca9-9a6b-4ff0-ae3c-bbbaa7886558"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="ab38133d-b643-4707-a7b5-a44bc7b24c75"
@@ -39,11 +41,13 @@
 			disabled="false"
 			id="9741b953-59a5-499e-b032-c33951549314"
 			label="!buildInstance"
+			lineNumber="3"
 			code="404"
 			message="Could not find build image" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="e1174429-3063-4dde-9134-620ea86c373d">
+			id="e1174429-3063-4dde-9134-620ea86c373d"
+			lineNumber="4">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="473668e3-621f-497a-80ea-08994579a335"
@@ -88,10 +92,12 @@
 			disabled="false"
 			id="fa55294a-623b-4950-b3cc-e14b7cbd5cb4"
 			label="!project"
+			lineNumber="5"
 			message="Project not related to build" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="212e5bb2-3f7e-41b0-9fcc-b347c555fac6">
+			id="212e5bb2-3f7e-41b0-9fcc-b347c555fac6"
+			lineNumber="6">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="1f2681ce-752c-452a-a948-e9e1c78e9ab0"

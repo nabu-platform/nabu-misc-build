@@ -64,4 +64,15 @@
         <x>1515</x>
         <y>458</y>
     </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <x>436</x>
+        <y>754</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.misc.build.types.buildInstanceEnvironment</type>
+        <x>512</x>
+        <y>849</y>
+    </entries>
 </dataModel>

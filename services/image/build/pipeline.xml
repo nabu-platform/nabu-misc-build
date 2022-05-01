@@ -1,0 +1,11 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="buildInstanceId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <field name="environment" type="java.lang.String"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="buildInstanceImages" definition="nabu.misc.build.types.buildInstanceEnvironment" name="existing"/>
+    <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.output" name="instance"/>
+    <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" minOccurs="0" name="environment"/>
+    <structure collectionName="buildImages" definition="nabu.misc.build.crud.buildImage.types.output" name="image"/>
+</structure>

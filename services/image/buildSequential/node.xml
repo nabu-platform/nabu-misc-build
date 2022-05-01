@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-05-01T07:41:34.549+02:00" lastModified="2022-05-01T08:31:56.308+02:00" leaf="true" version="12">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.build.crud.buildImage.services.get</references>
+    <references>nabu.misc.build.crud.buildImage.types.output</references>
+    <references>nabu.frameworks.tasks.database.task.search</references>
+    <references>nabu.misc.build.services.image.build</references>
+    <references>nabu.frameworks.tasks.providers.executor</references>
+    <references>java.util.UUID</references>
+    <references>java.lang.String</references>
+    <references>nabu.misc.build.crud.buildInstance.services.get</references>
+    <references>nabu.misc.build.crud.buildInstance.types.output</references>
+    <references>nabu.frameworks.tasks.types.model.tasks.Task</references>
+</node>

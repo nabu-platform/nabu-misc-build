@@ -5,4 +5,5 @@
     <field name="created" timezone="UTC" type="java.util.Date"/>
     <field name="cloudProfile" type="java.lang.String"/>
     <field name="cloudApiKey" type="java.lang.String"/>
+    <field minOccurs="0" name="description" type="java.lang.String"/>
 </structure>

@@ -10,4 +10,6 @@
     <structure collectionName="buildInstances" definition="nabu.misc.build.crud.buildInstance.types.createOutput" name="buildInstance" restrict="created"/>
     <structure collectionName="buildInstanceProjects" definition="nabu.misc.build.crud.buildInstanceProject.types.output" maxOccurs="unbounded" minOccurs="0" name="existingProjectInstances"/>
     <field name="changed" type="java.lang.Boolean"/>
+    <structure collectionName="buildEnvironments" definition="nabu.misc.build.crud.buildEnvironment.types.output" maxOccurs="unbounded" minOccurs="0" name="existingEnvironments"/>
+    <structure collectionName="buildInstanceEnvironments" definition="nabu.misc.build.crud.buildInstanceEnvironment.types.createOutput" name="instanceEnvironment"/>
 </structure>
