@@ -156,7 +156,7 @@
 				lineNumber="6">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Drop the fields"
-					disabled="false"
+					disabled="true"
 					id="f1474aaf-93ed-45d6-918b-713fedd71759"
 					lineNumber="7">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Drop"
@@ -169,10 +169,25 @@
 						path="environment/image" xsi:nil="true"/>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Set the flag"
+					disabled="false"
+					id="76f52cf3-68c4-4c00-941f-7833527b2bcd"
+					lineNumber="8">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d364e4c0-e081-4a86-9a95-5292c9cf4149"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>true</from>
+					<to>environment/outdated</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Update the environment instance"
 					disabled="false"
 					id="76ead4bb-92a7-485b-a7e5-d36acdb73d27"
-					lineNumber="8">
+					lineNumber="9">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="5e26eb5e-3af0-43ce-bf20-cb67b660040a"
@@ -205,9 +220,9 @@
 				</steps>
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					disabled="false"
+					disabled="true"
 					id="59b21a0a-5089-498a-b7a6-5c661bf0489d"
-					lineNumber="9">
+					lineNumber="10">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="61a78c51-95f5-453d-afb8-dd2509fdb61a"

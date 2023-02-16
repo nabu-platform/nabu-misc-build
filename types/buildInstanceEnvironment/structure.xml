@@ -5,4 +5,5 @@
     <field name="created" timezone="UTC" type="java.util.Date"/>
     <field minOccurs="0" name="built" timezone="UTC" type="java.util.Date"/>
     <field minOccurs="0" name="image" type="java.net.URI"/>
+    <field comment="When one of the projects has a newer RC available" minOccurs="0" name="outdated" type="java.lang.Boolean"/>
 </structure>

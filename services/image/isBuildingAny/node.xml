@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-05-06T17:17:22.711+02:00" lastModified="2022-05-06T17:19:26.239+02:00" leaf="true" version="8">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <properties/>
+    <references>nabu.misc.build.crud.buildProject.services.list</references>
+    <references>nabu.misc.git.utils.project.isBuilding</references>
+    <references>java.lang.Boolean</references>
+    <references>nabu.misc.build.crud.buildProject.types.output</references>
+    <references>java.util.UUID</references>
+    <references>nabu.misc.build.types.buildImage</references>
+</node>

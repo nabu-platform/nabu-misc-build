@@ -54,6 +54,10 @@
         <foreignName>buildProjectId:workspace</foreignName>
         <localName>workspace</localName>
     </foreignFields>
+    <foreignFields>
+        <foreignName>buildProjectId:scope</foreignName>
+        <localName>scope</localName>
+    </foreignFields>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
     <updateRole>$user</updateRole>

@@ -217,11 +217,20 @@
 							disabled="false"
 							id="38990150-f333-41c3-abfb-aaa6e2f97fbb"
 							path="availableInstance/image" xsi:nil="true"/>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="30088b84-24f0-477c-ad3d-2e2aa904e097"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>false</from>
+						<to>availableInstance/outdated</to>
+					</steps>
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Persist drop"
 						disabled="false"
-						id="d258a7d3-392e-4c3e-a52d-c21b0f603f0a"
+						id="b6e3b68079de4b289d8c236fe6799c83"
 						lineNumber="11">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"

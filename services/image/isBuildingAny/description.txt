@@ -1,0 +1,2 @@
+Check if any of the projects are currently being built.
+Zip creation is part of the building process, we should not start imaging _before_ the building of the projects is done

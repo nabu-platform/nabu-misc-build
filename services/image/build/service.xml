@@ -286,6 +286,15 @@
 			<from>result9780accc1dba4317bd7892024db93324/date</from>
 			<to>existing/built</to>
 		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="14fd7ce2-61f1-4dfe-a02c-090c85ae5ad6"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>false</from>
+			<to>existing/outdated</to>
+		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"

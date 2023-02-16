@@ -36,19 +36,56 @@
 			<from>resultf60bda9cf59d48d48ee5bda535c9199f/result</from>
 			<to>image</to>
 		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="55c603a1-200e-4ca6-b85b-243addae3b12"
+				serviceId="nabu.misc.build.services.image.isBuildingAny"
+				resultName="resultd294e0c70e284c14b3b032fd63067da9"
+				temporaryMapping="true"
+				x="149"
+				y="224"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c158c814-15ef-4586-a09c-b0ed0ddbd08e"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/content/buildImageId</from>
+				<to>buildImageId</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="9e1eabfa-1d7c-4193-8e93-972d03fce7a6"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultd294e0c70e284c14b3b032fd63067da9/isBuilding</from>
+			<to>isBuilding</to>
+		</steps>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			disabled="false"
+			id="cb5529c9-61e7-4a35-99b1-c9c75a417f0b"
+			label="isBuilding"
+			lineNumber="3"
+			code="BUILDING-IN-PROGRESS"
+			message="Projects are currently still building" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
 			disabled="false"
 			id="3b59da49-d00b-4947-b065-6c70e5d48e96"
 			label="!image"
-			lineNumber="3"
+			lineNumber="4"
 			code="404"
 			message="Build image not found" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			comment="Map initial"
 			disabled="false"
 			id="19f38b90-5f03-47a3-9746-b99276fee4d5"
-			lineNumber="4">
+			lineNumber="5">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="8294714b-5650-4d3a-a4a0-8be898dee62a"
@@ -62,19 +99,19 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="1726be7b-b3de-4e4a-aa7e-bd458d3a97d8"
-			lineNumber="5"
+			lineNumber="6"
 			query="input/query/patchParentId">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				comment="No parent, start a new version"
 				disabled="false"
 				id="7efb8ac5-d34d-4867-b9d6-555628fac8e3"
 				label="null"
-				lineNumber="6">
+				lineNumber="7">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Get the last build instance, set patch to 0"
 					disabled="false"
 					id="cc4fcf2d-8267-42a8-b6f5-00d540da60c6"
-					lineNumber="7">
+					lineNumber="8">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="5389aa17-bdc5-4205-9485-23d1f2814f7b"
@@ -136,14 +173,14 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 					disabled="false"
 					id="1ed7cf78-36fb-492c-a5e1-6cc9dd9834e7"
-					lineNumber="8"
+					lineNumber="9"
 					query="last">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Set version to 1"
 						disabled="false"
 						id="bc6e6759-38f9-4c28-868d-df11ee8c0f2c"
 						label="null"
-						lineNumber="9">
+						lineNumber="10">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="d3b4f8ec-e1c9-43ff-947b-7f30e71de8f0"
@@ -158,7 +195,7 @@
 						comment="Last version + 1"
 						disabled="false"
 						id="66f88f02-fc5d-4f3d-a27f-9cbbaecfe861"
-						lineNumber="10">
+						lineNumber="11">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="9b1f67ec-e2c7-445d-8498-0fbd16164092"
@@ -174,11 +211,11 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				disabled="false"
 				id="e3c083f6-0ed8-4fb8-a52e-b5d0702f391e"
-				lineNumber="11">
+				lineNumber="12">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="6c2bc7de-7817-4dc5-885a-058c047dd4ed"
-					lineNumber="12">
+					lineNumber="13">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="99049fd9-617b-4b65-8bee-ef9328803f7c"
@@ -214,14 +251,14 @@
 					disabled="false"
 					id="4fe7ec79-c1ed-4b61-acb8-41aba730586c"
 					label="!last"
-					lineNumber="13"
+					lineNumber="14"
 					code="404"
 					message="Patch parent not found" xsi:nil="true"/>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="We need the one with the highest patch level"
 					disabled="false"
 					id="50919b55-77f5-4b03-ad5e-17a0aff6dbbb"
-					lineNumber="14">
+					lineNumber="15">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="a41aaba1-881f-4686-811d-df5822e6d28d"
@@ -284,14 +321,14 @@
 					disabled="false"
 					id="f36afcfdff8f4dacb1938341e5062513"
 					label="!last"
-					lineNumber="15"
+					lineNumber="16"
 					code="404"
 					message="Highest patch version could not be retrieved" xsi:nil="true"/>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Keep version, increase patch"
 					disabled="false"
 					id="ede0d077-88d3-4a75-8430-79f7a8bab146"
-					lineNumber="16">
+					lineNumber="17">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="fd021f59-7741-4cc8-8795-f2e573b8a5f1"
@@ -316,13 +353,13 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="f0e54cf2-e833-400e-a013-b63162148fa7"
-			lineNumber="17">
+			lineNumber="18">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="If we have a patch parent, use the nabu version from that"
 				disabled="false"
 				id="12546e36-b82d-467d-9250-2af6394f7cc0"
 				label="input/query/patchParentId != null &amp;&amp; input/query/updateProfile != true"
-				lineNumber="18">
+				lineNumber="19">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
 					id="49e0404f-cd8e-4ef9-9975-56037bbf4527"
@@ -354,11 +391,11 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				disabled="false"
 				id="5e1d29df-2008-4aeb-9378-e8123670a2d3"
-				lineNumber="19">
+				lineNumber="20">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="5f0724bd-7b02-478b-840c-5351dd9474d7"
-					lineNumber="20">
+					lineNumber="21">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="a1dec6f9-3671-45c1-9ef6-b2f0691d39a7"
@@ -471,13 +508,13 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 					disabled="false"
 					id="479e495f-c484-47f2-98b0-9c1a3b0db96f"
-					lineNumber="21">
+					lineNumber="22">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="If we updated from patch but have the same nabu version in the end, its not an update"
 						disabled="false"
 						id="f59a6e1e-2730-4a82-8a95-9c0e773c7ad6"
 						label="input/query/patchParentId != null &amp;&amp; last/profileVersion = fullInput/profileVersion"
-						lineNumber="22">
+						lineNumber="23">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="d51672f3-3160-4d91-bb8d-23ef001a7c32"
@@ -491,7 +528,7 @@
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="5a8fd984-5ef1-4e10-81ba-ad0a32fbed87"
-						lineNumber="23">
+						lineNumber="24">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="8d0189ce-8e61-4f2b-b898-813887f3df91"
@@ -508,7 +545,7 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="efe15434-f697-4eb0-abae-d27f117c5682"
-			lineNumber="24">
+			lineNumber="25">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="3f9c4598-c3c4-4733-995f-c7da74e076d7"
@@ -543,19 +580,19 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="3fdd3bf0-598c-4bd8-9dbb-88d0e5a881cf"
-			lineNumber="25"
+			lineNumber="26"
 			query="input/query/patchParentId">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				comment="We take the latest version available for all projects linked to this image"
 				disabled="false"
 				id="8a281166-1bf7-4f96-8071-13bf0efb0331"
 				label="null"
-				lineNumber="26">
+				lineNumber="27">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Get all the projects related to this build"
 					disabled="false"
 					id="ad588295-08a6-456b-b738-cab58fcc4c1f"
-					lineNumber="27">
+					lineNumber="28">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="920c58f4-38eb-4c7c-b612-3e3924d302c3"
@@ -599,13 +636,13 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="455570e7-8f2b-40b1-88cb-c1723268dae2"
-					lineNumber="28"
+					lineNumber="29"
 					variable="project"
 					into="projectInstances">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="9eba9087-111f-442a-af5b-ba4ed48e93cc"
-						lineNumber="29">
+						lineNumber="30">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="849acd3f-0bf7-4d26-a6fb-3b8908436e8f"
@@ -781,11 +818,11 @@
 				comment="We take the latest patch version available for the projects linked to this instance within the same version"
 				disabled="false"
 				id="fa6fedf2-6e97-40ce-abc4-f5b7e9b7912d"
-				lineNumber="30">
+				lineNumber="31">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="e5cbeaa1-716c-4c1b-b8b8-4c947da3063b"
-					lineNumber="31">
+					lineNumber="32">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="9be73653-5719-48ef-bb7f-2ba93458a0db"
@@ -820,14 +857,14 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="b9f671a2-0e53-457d-a926-c3c5209687ab"
-					lineNumber="32"
+					lineNumber="33"
 					variable="existingProjectInstance"
 					into="projectInstances">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="TODO: should get additional release notes for the patch"
 						disabled="false"
 						id="b91add51-9a7c-4c4f-a8e6-bbc6470b2703"
-						lineNumber="33">
+						lineNumber="34">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="c99cc16c-d16c-414a-9214-73da14f9f4fd"
@@ -938,7 +975,7 @@
 						comment="Update changed"
 						disabled="false"
 						id="f29f1c99-0638-4d54-8587-be82d25e959b"
-						lineNumber="34">
+						lineNumber="35">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="b5b7b3a7-d6d9-441c-9b29-9cc345bf4dac"
@@ -956,7 +993,7 @@
 					disabled="false"
 					id="fbc40dfd-dae7-482c-b67e-1c415bd067aa"
 					label="!changed &amp;&amp; input/content/comment == null"
-					lineNumber="35"
+					lineNumber="36"
 					code="NO-CHANGE"
 					message="No change detected in the projects" xsi:nil="true"/>
 		</steps>
@@ -965,7 +1002,7 @@
 			disabled="false"
 			id="36dea6f2-7e1f-41ab-be69-d7e2517b0a68"
 			label="projectInstances"
-			lineNumber="36">
+			lineNumber="37">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="b7a1c36c-4687-478b-b045-05b23433690c"
@@ -991,7 +1028,7 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="1011591d-d7dc-414e-a03d-4815c051f82e"
-			lineNumber="37">
+			lineNumber="38">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="30a3a95c-9a5f-4aeb-9860-4eef9989dc6e"
@@ -1026,12 +1063,12 @@
 	<steps xsi:type="be.nabu.libs.services.vm.step.For"
 			disabled="false"
 			id="487a2819-904f-462c-a32b-273a11a91f62"
-			lineNumber="38"
+			lineNumber="39"
 			variable="existingEnvironment">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="5f447059-5dae-4b4d-aad4-1742c7753bd0"
-				lineNumber="39">
+				lineNumber="40">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="e3fadaab-a03b-470c-81e5-c1e71c7ee869"
@@ -1096,7 +1133,7 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="de51ec99-0966-4d55-bc6d-00f4f6b43b08"
-				lineNumber="40">
+				lineNumber="41">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="5d14b0c3-1b46-4bb5-b87d-b2630d8886c2"

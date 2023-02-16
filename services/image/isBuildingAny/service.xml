@@ -1,0 +1,107 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="e11c61ff-2e88-4dc4-9dc0-258f809d52e1"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="4800f997-279b-43d1-bf8d-be750375f794"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="3c4cc45b-5087-4560-be07-1111653b2f87"
+				serviceId="nabu.misc.build.crud.buildProject.services.list"
+				resultName="result84613cd46dc84efbb6178f97ab4d03f2"
+				temporaryMapping="true"
+				x="119"
+				y="259"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3b3a6335-d07e-4b7a-9043-0d1a676fa99c"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/buildImageId</from>
+				<to>filter/buildImageId[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="bbc83e74-2bd8-4074-8585-1e6704660a31"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result84613cd46dc84efbb6178f97ab4d03f2/results</from>
+			<to>projects</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="4d286438-40ed-455e-b6d8-11fd562bd820"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>false</from>
+			<to>output/isBuilding</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="b65d8d93-01f0-4be6-8aa2-1ede5b25e5e6"
+			lineNumber="3"
+			variable="project">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="3e18a442-eb97-45fd-9a59-774910508160"
+				lineNumber="4">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="39eb0e26-8036-4b2d-95f5-549e2ce11181"
+					serviceId="nabu.misc.git.utils.project.isBuilding"
+					resultName="result0c2a8f2f36574c0ebeb18ebf6b5262c2"
+					temporaryMapping="true"
+					x="98"
+					y="53"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="21463096-2178-4ac8-b361-2ef1b2c741a2"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/workspace</from>
+					<to>workspace</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="e75eafba-ddc6-47af-a57d-5468be09e67d"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>project/name</from>
+					<to>project</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e68c59f7-7794-458d-9af8-ff8062f91608"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result0c2a8f2f36574c0ebeb18ebf6b5262c2/isBuilding</from>
+				<to>output/isBuilding</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+				disabled="false"
+				id="f0dfcb9a-201b-4945-adc1-b9fde7a2df90"
+				label="output/isBuilding"
+				lineNumber="5">
+			<count>1</count>
+		</steps>
+		<query>projects</query>
+	</steps>
+</sequence>

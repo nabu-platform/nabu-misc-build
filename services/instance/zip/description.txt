@@ -1,0 +1,7 @@
+# Scopes
+
+The "runtime" scope is special, this means it is necessary for every scope, whether actually runtime or test (or some other scope).
+
+So if we have a build environment set to scope "test", it will include projects with no scope (== all scopes), scope == "runtime" and scope == "test"
+So if we have a build environment set to scope "runtime", it will include projects with no scope (== all scopes) and scope == "runtime"
+So if we have a build environment has no scope, it actually includes all the projects, regardless of their scope.
