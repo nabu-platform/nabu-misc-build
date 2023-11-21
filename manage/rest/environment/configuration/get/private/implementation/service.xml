@@ -42,7 +42,8 @@
 			id="cf2c0ae2-bfdd-4995-9597-07e42a53e112"
 			label="!environment"
 			lineNumber="3"
-			code="404" xsi:nil="true"/>
+			code="404"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="4f06db49-9f7e-42d8-a371-a73c11190465"

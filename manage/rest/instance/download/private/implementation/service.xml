@@ -43,7 +43,8 @@
 			label="!buildInstance"
 			lineNumber="3"
 			code="404"
-			message="Could not find build image" xsi:nil="true"/>
+			message="Could not find build image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="066ae4ac-f8a7-4486-bfe8-e90b36972ecb"
@@ -93,13 +94,15 @@
 			id="c15e5854-0900-4286-999a-58cf7168d9fe"
 			label="!environmentInstance"
 			lineNumber="5"
-			code="404" xsi:nil="true"/>
+			code="404"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
 			disabled="false"
 			id="49462abd-4c8b-4f15-bbe4-1c2482fd65cb"
 			label="environmentInstance/image == null"
 			lineNumber="6"
-			message="Not ready yet" xsi:nil="true"/>
+			message="Not ready yet"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="71502795-2de9-42cb-a479-19a301d2f2f9"

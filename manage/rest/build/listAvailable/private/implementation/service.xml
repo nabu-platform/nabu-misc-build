@@ -99,4 +99,78 @@
 			<to>output/content/builds</to>
 		</steps>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="43426f45c1e24b079bda811f6b412cd8"
+			label="input/query/q != null"
+			lineNumber="5">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="7adcb188ef0e461193ee81b3eb2e72dc"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/content/builds[name ~ "(?i).*" + /input/query/q + ".*"]</from>
+			<to>output/content/builds</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="cb96558de89046d9858d7bef1ead3363"
+			label="input/query/not != null"
+			lineNumber="6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="13924a3c21fb4ee0bb6d2fadbc04c37b"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/content/builds[name !# /input/query/not]</from>
+			<to>output/content/builds</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="efecf3e4ec484e179e93a40a1d8c525e"
+			lineNumber="7">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="9efa5cafeb5e432ab785d78303b2a3ac"
+				serviceId="nabu.utils.List.sort"
+				resultName="result24261ea6f22b439f9fca6849ad30fd2a"
+				temporaryMapping="true"
+				x="82"
+				y="42"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6d64287e06b2455f94f0cde0b806685b"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/content/builds</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="65651c7599ee47ab86029e6523a1393c"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>name</from>
+				<to>fields[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="7f78c63e63004d0d9be2d1091ebcd001"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result24261ea6f22b439f9fca6849ad30fd2a/list</from>
+			<to>output/content/builds</to>
+		</steps>
+	</steps>
 </sequence>

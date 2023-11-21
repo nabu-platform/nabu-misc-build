@@ -4,7 +4,9 @@
     <broadcastCreate>false</broadcastCreate>
     <broadcastUpdate>false</broadcastUpdate>
     <coreType>nabu.misc.build.types.buildInstanceEnvironment</coreType>
+    <createPermission>build.manage</createPermission>
     <createRole>$user</createRole>
+    <deletePermission>build.manage</deletePermission>
     <deleteRole>$user</deleteRole>
     <filters>
         <caseInsensitive>false</caseInsensitive>
@@ -30,11 +32,21 @@
         <foreignName>buildEnvironmentId:scope</foreignName>
         <localName>scope</localName>
     </foreignFields>
+    <getPermission>build.manage</getPermission>
+    <hooks>false</hooks>
+    <listPermission>build.manage</listPermission>
     <listRole>$user</listRole>
     <provider>nabu.services.crud.provider.basic.provider</provider>
+    <restLimitToUser>true</restLimitToUser>
+    <updatePermission>build.manage</updatePermission>
     <updateRole>$user</updateRole>
+    <useAsAuthorizationServiceContext>false</useAsAuthorizationServiceContext>
     <useExplicitLanguage>false</useExplicitLanguage>
+    <useGlobalPermissionContext>true</useGlobalPermissionContext>
     <useLanguage>false</useLanguage>
     <useListOutputForCreate>false</useListOutputForCreate>
     <useListOutputForUpdate>false</useListOutputForUpdate>
+    <useProjectAsPermissionContext>false</useProjectAsPermissionContext>
+    <useServiceContextAsPermissionContext>false</useServiceContextAsPermissionContext>
+    <useWebApplicationAsPermissionContext>false</useWebApplicationAsPermissionContext>
 </crud>

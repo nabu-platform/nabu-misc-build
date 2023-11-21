@@ -43,14 +43,16 @@
 			label="!buildInstance"
 			lineNumber="3"
 			code="404"
-			message="Could not find build image" xsi:nil="true"/>
+			message="Could not find build image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
 			disabled="false"
 			id="9ba60ada-87fc-4c01-84dc-2b2ca6e4999c"
 			label="buildInstance/buildImageId != input/path/imageId"
 			lineNumber="4"
 			code="404"
-			message="Incorrect combination of instance and image" xsi:nil="true"/>
+			message="Incorrect combination of instance and image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="fb025fcf-aa4a-4b3e-a8d8-37df67ff25af"
@@ -92,13 +94,15 @@
 			label="!environmentInstance"
 			lineNumber="6"
 			code="404"
-			message="Could not find environment" xsi:nil="true"/>
+			message="Could not find environment"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
 			disabled="false"
 			id="3c1d04d7-758c-439d-9a33-7684bec915d3"
 			label="environmentInstance/image == null"
 			lineNumber="7"
-			message="Not built yet" xsi:nil="true"/>
+			message="Not built yet"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="a3b7fa19-e620-40b0-90f6-34283025f9c2"
@@ -140,7 +144,8 @@
 			label="environment/buildImageId != input/path/imageId"
 			lineNumber="9"
 			code="404"
-			message="Incorrect combination of environment and image" xsi:nil="true"/>
+			message="Incorrect combination of environment and image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="c1072986-e4b9-41b5-bfd2-ada3bad58881"
@@ -221,7 +226,8 @@
 			label="!buildImage"
 			lineNumber="11"
 			code="404"
-			message="Invalid build image" xsi:nil="true"/>
+			message="Invalid build image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 			comment="If we have an API key, it must match"
 			disabled="false"
@@ -234,7 +240,8 @@
 				label="input/header/apiKey = null"
 				lineNumber="13"
 				code="404"
-				message="No API key provided, but one is configured" xsi:nil="true"/>
+				message="No API key provided, but one is configured"
+				whitelist="false" xsi:nil="true"/>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
 				id="d0fc2f02-fb9b-4080-b834-1429a376c8de"
@@ -294,7 +301,8 @@
 				label="!valid"
 				lineNumber="15"
 				code="404"
-				message="Invalid API key" xsi:nil="true"/>
+				message="Invalid API key"
+				whitelist="false" xsi:nil="true"/>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="true"

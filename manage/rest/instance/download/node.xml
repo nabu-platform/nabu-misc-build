@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T20:37:54.159+02:00" lastModified="2022-05-01T08:24:39.775+02:00" leaf="true" version="12">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-25T20:37:54.159+02:00" lastModified="2023-10-08T09:25:13.917+02:00" leaf="true" version="13">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
+    <locked>false</locked>
     <properties/>
     <references>nabu.misc.build.crud.buildImage.types.output</references>
     <references>nabu.frameworks.datastore.Services.retrieve</references>

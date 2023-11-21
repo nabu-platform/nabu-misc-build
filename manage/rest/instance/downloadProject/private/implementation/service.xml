@@ -43,7 +43,8 @@
 			label="!buildInstance"
 			lineNumber="3"
 			code="404"
-			message="Could not find build image" xsi:nil="true"/>
+			message="Could not find build image"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="e1174429-3063-4dde-9134-620ea86c373d"
@@ -93,7 +94,8 @@
 			id="fa55294a-623b-4950-b3cc-e14b7cbd5cb4"
 			label="!project"
 			lineNumber="5"
-			message="Project not related to build" xsi:nil="true"/>
+			message="Project not related to build"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
 			id="212e5bb2-3f7e-41b0-9fcc-b347c555fac6"

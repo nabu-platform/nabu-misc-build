@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-29T09:15:13.746+02:00" lastModified="2022-04-29T17:03:00.217+02:00" leaf="true" version="8">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-10-29T09:15:13.746+02:00" lastModified="2023-10-08T09:24:33.922+02:00" leaf="true" version="9">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
+    <locked>false</locked>
     <properties/>
     <references>nabu.misc.build.manage.rest.build.cloneInput</references>
     <references>nabu.misc.git.Services.configure</references>

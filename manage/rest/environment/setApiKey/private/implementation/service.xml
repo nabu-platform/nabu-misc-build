@@ -1,9 +1,11 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		disabled="false"
-		id="96d04cd2-b17d-4226-8d89-17af159307ed">
+		id="96d04cd2-b17d-4226-8d89-17af159307ed"
+		lineNumber="1">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="62fa6a42-6162-465c-9803-93d162c1f505">
+			id="62fa6a42-6162-465c-9803-93d162c1f505"
+			lineNumber="2">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="01b58327-2e46-43e1-a320-5627e54ec8e7"
@@ -39,17 +41,21 @@
 			disabled="false"
 			id="dc68c9c0-4642-438c-8d91-9586308c88e0"
 			label="!environment"
+			lineNumber="3"
 			code="404"
-			message="Environment not found" xsi:nil="true"/>
+			message="Environment not found"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="ee6e020f-11d6-430c-a68e-68bf4a707850"
+			lineNumber="4"
 			query="input/content/apiKey">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="Drop api key"
 				disabled="false"
 				id="9c1f7d74-982d-49aa-bf07-4cdc2b3d2bd2"
-				label="null">
+				label="null"
+				lineNumber="5">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Drop"
 					disabled="false"
 					id="4dbed4e8-5b5a-46b5-8ee9-89a4922763dd"
@@ -57,7 +63,8 @@
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
-				id="235bf0f0-53a1-407a-9016-07b12d21dfc0">
+				id="235bf0f0-53a1-407a-9016-07b12d21dfc0"
+				lineNumber="6">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="082429af-98e0-4032-9eeb-03e306cfaf32"
@@ -101,7 +108,8 @@
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			disabled="false"
-			id="18abf441-16f2-4f2b-afcf-9e930f963b51">
+			id="18abf441-16f2-4f2b-afcf-9e930f963b51"
+			lineNumber="7">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 				disabled="false"
 				id="65dd5627-e005-43b2-919e-826b7237b913"

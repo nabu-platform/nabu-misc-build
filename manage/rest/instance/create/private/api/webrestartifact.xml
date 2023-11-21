@@ -4,10 +4,16 @@
     <path>/instance</path>
     <queryParameters>patchParentId, updateProfile</queryParameters>
     <role>$user</role>
+    <permissionAction>build.manage</permissionAction>
+    <useServiceContextAsPermissionContext>false</useServiceContextAsPermissionContext>
+    <useWebApplicationAsPermissionContext>false</useWebApplicationAsPermissionContext>
+    <useProjectAsPermissionContext>false</useProjectAsPermissionContext>
+    <useGlobalPermissionContext>true</useGlobalPermissionContext>
     <input>nabu.misc.build.manage.rest.instance.createInput</input>
     <lenient>true</lenient>
     <webApplicationId>false</webApplicationId>
     <geoPosition>false</geoPosition>
+    <useAsAuthorizationServiceContext>false</useAsAuthorizationServiceContext>
     <language>false</language>
     <allowFormBinding>false</allowFormBinding>
     <caseInsensitive>false</caseInsensitive>
@@ -20,8 +26,12 @@
     <source>false</source>
     <allowRaw>false</allowRaw>
     <domain>false</domain>
+    <origin>false</origin>
+    <scheme>false</scheme>
     <ignoreOffline>false</ignoreOffline>
     <allowRootArrays>false</allowRootArrays>
     <captureErrors>false</captureErrors>
     <captureSuccessful>false</captureSuccessful>
+    <limitedToInterface>false</limitedToInterface>
+    <allowExplicitResponseCode>false</allowExplicitResponseCode>
 </restInterface>

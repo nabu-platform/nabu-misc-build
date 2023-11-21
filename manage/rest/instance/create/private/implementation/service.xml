@@ -73,14 +73,16 @@
 			label="isBuilding"
 			lineNumber="3"
 			code="BUILDING-IN-PROGRESS"
-			message="Projects are currently still building" xsi:nil="true"/>
+			message="Projects are currently still building"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
 			disabled="false"
 			id="3b59da49-d00b-4947-b065-6c70e5d48e96"
 			label="!image"
 			lineNumber="4"
 			code="404"
-			message="Build image not found" xsi:nil="true"/>
+			message="Build image not found"
+			whitelist="false" xsi:nil="true"/>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 			comment="Map initial"
 			disabled="false"
@@ -253,7 +255,8 @@
 					label="!last"
 					lineNumber="14"
 					code="404"
-					message="Patch parent not found" xsi:nil="true"/>
+					message="Patch parent not found"
+					whitelist="false" xsi:nil="true"/>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="We need the one with the highest patch level"
 					disabled="false"
@@ -323,7 +326,8 @@
 					label="!last"
 					lineNumber="16"
 					code="404"
-					message="Highest patch version could not be retrieved" xsi:nil="true"/>
+					message="Highest patch version could not be retrieved"
+					whitelist="false" xsi:nil="true"/>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					comment="Keep version, increase patch"
 					disabled="false"
@@ -995,7 +999,8 @@
 					label="!changed &amp;&amp; input/content/comment == null"
 					lineNumber="36"
 					code="NO-CHANGE"
-					message="No change detected in the projects" xsi:nil="true"/>
+					message="No change detected in the projects"
+					whitelist="false" xsi:nil="true"/>
 		</steps>
 	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map"

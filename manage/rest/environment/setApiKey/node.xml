@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-11-09T16:53:50.162+01:00" lastModified="2021-11-09T16:57:07.277+01:00" leaf="true" version="8">
+<node artifactManager="be.nabu.eai.module.rest.provider.RESTServiceManager" created="2021-11-09T16:53:50.162+01:00" lastModified="2023-10-08T09:24:51.479+02:00" leaf="true" version="9">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
+    <locked>false</locked>
     <properties/>
     <references>nabu.misc.build.manage.rest.environment.apiKeyInput</references>
     <references>nabu.services.jdbc.Services.update</references>
